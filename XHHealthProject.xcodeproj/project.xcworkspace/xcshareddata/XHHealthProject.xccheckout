@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>715DA4FB-76AD-41E5-A38F-9860A034E07E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>XHHealthProject</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5D068465F1B6B293EEAC7C347C1FA585E9D7D14B</key>
+		<string>https://github.com/wanghan524/XHHealthProject.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>XHHealthProject.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5D068465F1B6B293EEAC7C347C1FA585E9D7D14B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wanghan524/XHHealthProject.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5D068465F1B6B293EEAC7C347C1FA585E9D7D14B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5D068465F1B6B293EEAC7C347C1FA585E9D7D14B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>XHHealthProject</string>
+		</dict>
+	</array>
+</dict>
+</plist>

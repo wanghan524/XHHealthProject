@@ -40,6 +40,10 @@
 		A4F664D11B300523006B2BC0 /* LifeWayInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F664CF1B300523006B2BC0 /* LifeWayInfoCell.m */; };
 		A4F664D21B300523006B2BC0 /* LifeWayInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F664D01B300523006B2BC0 /* LifeWayInfoCell.xib */; };
 		A4F6651A1B31CE81006B2BC0 /* XHHealthRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F665191B31CE81006B2BC0 /* XHHealthRequest.m */; };
+		EF7B96A51B36B802009CF4DF /* ThirdInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B96A31B36B802009CF4DF /* ThirdInfoCell.m */; };
+		EF7B96A61B36B802009CF4DF /* ThirdInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF7B96A41B36B802009CF4DF /* ThirdInfoCell.xib */; };
+		EF7B96AB1B36B836009CF4DF /* FourthInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B96A91B36B836009CF4DF /* FourthInfoCell.m */; };
+		EF7B96AC1B36B836009CF4DF /* FourthInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF7B96AA1B36B836009CF4DF /* FourthInfoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +119,12 @@
 		A4F664D01B300523006B2BC0 /* LifeWayInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LifeWayInfoCell.xib; sourceTree = "<group>"; };
 		A4F665181B31CE81006B2BC0 /* XHHealthRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHHealthRequest.h; sourceTree = "<group>"; };
 		A4F665191B31CE81006B2BC0 /* XHHealthRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHHealthRequest.m; sourceTree = "<group>"; };
+		EF7B96A21B36B802009CF4DF /* ThirdInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdInfoCell.h; sourceTree = "<group>"; };
+		EF7B96A31B36B802009CF4DF /* ThirdInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdInfoCell.m; sourceTree = "<group>"; };
+		EF7B96A41B36B802009CF4DF /* ThirdInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdInfoCell.xib; sourceTree = "<group>"; };
+		EF7B96A81B36B836009CF4DF /* FourthInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthInfoCell.h; sourceTree = "<group>"; };
+		EF7B96A91B36B836009CF4DF /* FourthInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthInfoCell.m; sourceTree = "<group>"; };
+		EF7B96AA1B36B836009CF4DF /* FourthInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FourthInfoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,6 +438,8 @@
 		A4ACB0081B2DBEA60037E00C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				EF7B96A71B36B80F009CF4DF /* FourthInfoCell */,
+				EF7B96A11B36B7B8009CF4DF /* ThirdInfoCell */,
 				A46068A01B2F228B00DBF04E /* PersonInfo */,
 				A460689F1B2F227F00DBF04E /* Menu */,
 			);
@@ -459,6 +471,26 @@
 				A4F664D01B300523006B2BC0 /* LifeWayInfoCell.xib */,
 			);
 			name = LifeWayInfo;
+			sourceTree = "<group>";
+		};
+		EF7B96A11B36B7B8009CF4DF /* ThirdInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF7B96A21B36B802009CF4DF /* ThirdInfoCell.h */,
+				EF7B96A31B36B802009CF4DF /* ThirdInfoCell.m */,
+				EF7B96A41B36B802009CF4DF /* ThirdInfoCell.xib */,
+			);
+			name = ThirdInfoCell;
+			sourceTree = "<group>";
+		};
+		EF7B96A71B36B80F009CF4DF /* FourthInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF7B96A81B36B836009CF4DF /* FourthInfoCell.h */,
+				EF7B96A91B36B836009CF4DF /* FourthInfoCell.m */,
+				EF7B96AA1B36B836009CF4DF /* FourthInfoCell.xib */,
+			);
+			name = FourthInfoCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -548,7 +580,9 @@
 				A46068A61B2F22D500DBF04E /* BaseInfoCell.xib in Resources */,
 				A4ACAFCB1B2D51510037E00C /* SVProgressHUD.bundle in Resources */,
 				A4ACAFEB1B2D7C5A0037E00C /* searchbg.jpg in Resources */,
+				EF7B96A61B36B802009CF4DF /* ThirdInfoCell.xib in Resources */,
 				A4ACAFE61B2D6DE80037E00C /* head.png in Resources */,
+				EF7B96AC1B36B836009CF4DF /* FourthInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +605,7 @@
 				A460688B1B2F04F100DBF04E /* UIColor+Category.m in Sources */,
 				A460688C1B2F04F100DBF04E /* LoginVC.m in Sources */,
 				A46068A51B2F22D500DBF04E /* BaseInfoCell.m in Sources */,
+				EF7B96A51B36B802009CF4DF /* ThirdInfoCell.m in Sources */,
 				A460688D1B2F04F100DBF04E /* LeftMenuVC.m in Sources */,
 				A460688E1B2F04F100DBF04E /* HomePageVC.m in Sources */,
 				A460688F1B2F04F100DBF04E /* BaseVC.m in Sources */,
@@ -580,6 +615,7 @@
 				A46068931B2F04F100DBF04E /* GDataXMLNode.m in Sources */,
 				A460689E1B2F220E00DBF04E /* PersonInfoVC.m in Sources */,
 				A46068941B2F04F100DBF04E /* MBProgressHUD.m in Sources */,
+				EF7B96AB1B36B836009CF4DF /* FourthInfoCell.m in Sources */,
 				A4F664D11B300523006B2BC0 /* LifeWayInfoCell.m in Sources */,
 				A4F6651A1B31CE81006B2BC0 /* XHHealthRequest.m in Sources */,
 				A46068951B2F04F100DBF04E /* SVProgressHUD.m in Sources */,
