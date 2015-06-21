@@ -1,0 +1,23 @@
+//
+//  XHHealthProject.pch
+//  XHHealthProject
+//
+//  Created by 菁优数学 on 15/6/14.
+//  Copyright (c) 2015年 AlexYang. All rights reserved.
+//
+
+#ifndef XHHealthProject_XHHealthProject_pch
+#define XHHealthProject_XHHealthProject_pch
+
+
+#import "Define.h"
+//#import "FileOperation.h"
+//#import "InterfaceDefine.h"
+//#import "SQLHelp.h"
+//#import "WSURLRequest.h"
+//#import "WSRequestManager.h"
+
+
+
+
+#endif
