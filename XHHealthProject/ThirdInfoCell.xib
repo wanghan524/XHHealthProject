@@ -23,21 +23,21 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-Nt-NZL">
-                        <rect key="frame" x="2" y="0.0" width="1" height="42"/>
+                        <rect key="frame" x="2" y="0.0" width="1" height="44"/>
                         <color key="backgroundColor" red="0.80392156859999997" green="0.78823529410000004" blue="0.64705882349999999" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="Acl-rs-GVV"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTv-Lo-Yqb">
-                        <rect key="frame" x="2" y="42" width="316" height="1"/>
+                        <rect key="frame" x="2" y="43" width="316" height="1"/>
                         <color key="backgroundColor" red="0.80392156859999997" green="0.78823529410000004" blue="0.64705882349999999" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="S5h-B5-P3A"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEf-iV-rJ0">
-                        <rect key="frame" x="318" y="0.0" width="1" height="43"/>
+                        <rect key="frame" x="318" y="0.0" width="1" height="44"/>
                         <color key="backgroundColor" red="0.80392156859999997" green="0.78823529410000004" blue="0.64705882349999999" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="aLY-ls-QYd"/>
@@ -89,7 +89,7 @@
                     <constraint firstItem="QJL-aI-SLM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="5FM-qS-79z"/>
                     <constraint firstItem="he2-Ty-cj0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="5sn-hE-O2d"/>
                     <constraint firstItem="Uze-ws-9Bd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-6" id="7UZ-2i-xcV"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="nTv-Lo-Yqb" secondAttribute="bottom" constant="-8" id="94M-RA-GiU"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="nTv-Lo-Yqb" secondAttribute="bottom" constant="-9" id="94M-RA-GiU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="nTv-Lo-Yqb" secondAttribute="trailing" constant="-6" id="9oJ-ee-4dy"/>
                     <constraint firstAttribute="bottomMargin" secondItem="TrF-D3-zlf" secondAttribute="bottom" constant="-9" id="AY2-XB-MUZ"/>
                     <constraint firstItem="nTv-Lo-Yqb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-6" id="BQC-ru-2Eo"/>
@@ -102,9 +102,9 @@
                     <constraint firstItem="NFe-Nt-NZL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="S33-1F-fYt"/>
                     <constraint firstItem="TrF-D3-zlf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="S4N-4y-jQe"/>
                     <constraint firstItem="QJL-aI-SLM" firstAttribute="leading" secondItem="he2-Ty-cj0" secondAttribute="trailing" id="TCN-VE-HDa"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="NFe-Nt-NZL" secondAttribute="bottom" constant="-7" id="W6S-3W-MWF"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="NFe-Nt-NZL" secondAttribute="bottom" constant="-9" id="W6S-3W-MWF"/>
                     <constraint firstItem="Uze-ws-9Bd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="XAY-48-Dvz"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="iEf-iV-rJ0" secondAttribute="bottom" constant="-8" id="ce4-S5-Yrs"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="iEf-iV-rJ0" secondAttribute="bottom" constant="-9" id="ce4-S5-Yrs"/>
                     <constraint firstItem="rUp-ba-xMO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="ctn-07-Nwk"/>
                     <constraint firstItem="iEf-iV-rJ0" firstAttribute="leading" secondItem="2Br-Qa-cbP" secondAttribute="trailing" id="gWM-qL-qap"/>
                     <constraint firstItem="rUp-ba-xMO" firstAttribute="leading" secondItem="QJL-aI-SLM" secondAttribute="trailing" id="jXw-OL-5mw"/>
@@ -118,6 +118,7 @@
             <connections>
                 <outlet property="thirdFierstLabel" destination="he2-Ty-cj0" id="Kml-BF-KWN"/>
                 <outlet property="thirdSecondLabel" destination="rUp-ba-xMO" id="Pvc-WC-Lwg"/>
+                <outlet property="thirdThirdLabel" destination="2Br-Qa-cbP" id="Vgb-m0-k4o"/>
             </connections>
             <point key="canvasLocation" x="216" y="152"/>
         </tableViewCell>

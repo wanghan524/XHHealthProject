@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface SecondCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *left_middleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *middle_upLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *middle_middleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *middle_downLabel;
+@property (weak, nonatomic) IBOutlet UILabel *right_upLabel;
+@property (weak, nonatomic) IBOutlet UILabel *right_middleLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *right_downLabel;
+
 
 @end

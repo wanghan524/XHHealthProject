@@ -10,6 +10,8 @@
 #import "XHNavigationView.h"
 #import "LoginVC.h"
 #import "PersonInfoVC.h"
+
+#import "SurveyInfoVC.h"
 @interface HomePageVC ()
 @property(nonatomic,strong)XHNavigationView *navView;
 @property(nonatomic,strong)UIImageView *middleImgView;
@@ -99,8 +101,12 @@
 
 -(void)infoClick:(UIButton *)sender
 {
-    PersonInfoVC *vc = [[PersonInfoVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+//    PersonInfoVC *vc = [[PersonInfoVC alloc]init];
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    SurveyInfoVC *infoVC = [[SurveyInfoVC alloc] init];
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 
 

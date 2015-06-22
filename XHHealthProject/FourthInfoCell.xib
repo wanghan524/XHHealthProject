@@ -37,7 +37,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thn-6G-Yfl">
-                        <rect key="frame" x="2" y="0.0" width="1" height="79"/>
+                        <rect key="frame" x="2" y="0.0" width="1" height="80"/>
                         <color key="backgroundColor" red="0.80392156859999997" green="0.78823529410000004" blue="0.64705882349999999" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="dII-P5-hc5"/>
@@ -134,7 +134,7 @@
                     <constraint firstItem="Z0v-Ay-M0Y" firstAttribute="leading" secondItem="OM3-5O-Bhb" secondAttribute="trailing" id="kmh-BS-CUy"/>
                     <constraint firstItem="uSG-BE-JF7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-6" id="lM7-nY-ogd"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Xiq-nD-aGU" secondAttribute="bottom" constant="-8" id="m5G-zh-vCZ"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="thn-6G-Yfl" secondAttribute="bottom" constant="-8" id="nyA-4a-6TE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="thn-6G-Yfl" secondAttribute="bottom" constant="-9" id="nyA-4a-6TE"/>
                     <constraint firstItem="thn-6G-Yfl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-6" id="o7O-jF-Fgi"/>
                     <constraint firstItem="smF-FS-6FK" firstAttribute="top" secondItem="Ji1-98-aZ0" secondAttribute="bottom" constant="1" id="pJZ-wT-0N8"/>
                     <constraint firstItem="OM3-5O-Bhb" firstAttribute="leading" secondItem="co6-Eh-6xJ" secondAttribute="trailing" constant="1" id="pmd-id-VJv"/>

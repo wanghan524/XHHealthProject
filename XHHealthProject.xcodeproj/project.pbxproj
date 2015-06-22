@@ -40,6 +40,11 @@
 		A4F664D11B300523006B2BC0 /* LifeWayInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F664CF1B300523006B2BC0 /* LifeWayInfoCell.m */; };
 		A4F664D21B300523006B2BC0 /* LifeWayInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F664D01B300523006B2BC0 /* LifeWayInfoCell.xib */; };
 		A4F6651A1B31CE81006B2BC0 /* XHHealthRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F665191B31CE81006B2BC0 /* XHHealthRequest.m */; };
+		EF583E201B37A9A800450E7A /* SecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF583E1E1B37A9A800450E7A /* SecondCell.m */; };
+		EF583E211B37A9A800450E7A /* SecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF583E1F1B37A9A800450E7A /* SecondCell.xib */; };
+		EF583E261B37A9C600450E7A /* FirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF583E241B37A9C600450E7A /* FirstCell.m */; };
+		EF583E271B37A9C600450E7A /* FirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF583E251B37A9C600450E7A /* FirstCell.xib */; };
+		EF583E2A1B37AE2700450E7A /* SurveyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EF583E291B37AE2700450E7A /* SurveyInfoVC.m */; };
 		EF7B96A51B36B802009CF4DF /* ThirdInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B96A31B36B802009CF4DF /* ThirdInfoCell.m */; };
 		EF7B96A61B36B802009CF4DF /* ThirdInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF7B96A41B36B802009CF4DF /* ThirdInfoCell.xib */; };
 		EF7B96AB1B36B836009CF4DF /* FourthInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B96A91B36B836009CF4DF /* FourthInfoCell.m */; };
@@ -119,6 +124,14 @@
 		A4F664D01B300523006B2BC0 /* LifeWayInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LifeWayInfoCell.xib; sourceTree = "<group>"; };
 		A4F665181B31CE81006B2BC0 /* XHHealthRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHHealthRequest.h; sourceTree = "<group>"; };
 		A4F665191B31CE81006B2BC0 /* XHHealthRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHHealthRequest.m; sourceTree = "<group>"; };
+		EF583E1D1B37A9A800450E7A /* SecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCell.h; sourceTree = "<group>"; };
+		EF583E1E1B37A9A800450E7A /* SecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCell.m; sourceTree = "<group>"; };
+		EF583E1F1B37A9A800450E7A /* SecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCell.xib; sourceTree = "<group>"; };
+		EF583E231B37A9C600450E7A /* FirstCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstCell.h; sourceTree = "<group>"; };
+		EF583E241B37A9C600450E7A /* FirstCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstCell.m; sourceTree = "<group>"; };
+		EF583E251B37A9C600450E7A /* FirstCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstCell.xib; sourceTree = "<group>"; };
+		EF583E281B37AE2700450E7A /* SurveyInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyInfoVC.h; sourceTree = "<group>"; };
+		EF583E291B37AE2700450E7A /* SurveyInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyInfoVC.m; sourceTree = "<group>"; };
 		EF7B96A21B36B802009CF4DF /* ThirdInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdInfoCell.h; sourceTree = "<group>"; };
 		EF7B96A31B36B802009CF4DF /* ThirdInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdInfoCell.m; sourceTree = "<group>"; };
 		EF7B96A41B36B802009CF4DF /* ThirdInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdInfoCell.xib; sourceTree = "<group>"; };
@@ -152,6 +165,8 @@
 			children = (
 				A460689C1B2F220E00DBF04E /* PersonInfoVC.h */,
 				A460689D1B2F220E00DBF04E /* PersonInfoVC.m */,
+				EF583E281B37AE2700450E7A /* SurveyInfoVC.h */,
+				EF583E291B37AE2700450E7A /* SurveyInfoVC.m */,
 			);
 			name = PersonInfo;
 			sourceTree = "<group>";
@@ -438,6 +453,8 @@
 		A4ACB0081B2DBEA60037E00C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				EF583E221B37A9B000450E7A /* FirstInfoCell */,
+				EF583E1C1B37A99300450E7A /* SecondInfoCell */,
 				EF7B96A71B36B80F009CF4DF /* FourthInfoCell */,
 				EF7B96A11B36B7B8009CF4DF /* ThirdInfoCell */,
 				A46068A01B2F228B00DBF04E /* PersonInfo */,
@@ -471,6 +488,26 @@
 				A4F664D01B300523006B2BC0 /* LifeWayInfoCell.xib */,
 			);
 			name = LifeWayInfo;
+			sourceTree = "<group>";
+		};
+		EF583E1C1B37A99300450E7A /* SecondInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF583E1D1B37A9A800450E7A /* SecondCell.h */,
+				EF583E1E1B37A9A800450E7A /* SecondCell.m */,
+				EF583E1F1B37A9A800450E7A /* SecondCell.xib */,
+			);
+			name = SecondInfoCell;
+			sourceTree = "<group>";
+		};
+		EF583E221B37A9B000450E7A /* FirstInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF583E231B37A9C600450E7A /* FirstCell.h */,
+				EF583E241B37A9C600450E7A /* FirstCell.m */,
+				EF583E251B37A9C600450E7A /* FirstCell.xib */,
+			);
+			name = FirstInfoCell;
 			sourceTree = "<group>";
 		};
 		EF7B96A11B36B7B8009CF4DF /* ThirdInfoCell */ = {
@@ -577,11 +614,13 @@
 				A4F664D21B300523006B2BC0 /* LifeWayInfoCell.xib in Resources */,
 				A4ACAFED1B2D7CA60037E00C /* self.png in Resources */,
 				A4ACB0151B2EA4670037E00C /* back.png in Resources */,
+				EF583E211B37A9A800450E7A /* SecondCell.xib in Resources */,
 				A46068A61B2F22D500DBF04E /* BaseInfoCell.xib in Resources */,
 				A4ACAFCB1B2D51510037E00C /* SVProgressHUD.bundle in Resources */,
 				A4ACAFEB1B2D7C5A0037E00C /* searchbg.jpg in Resources */,
 				EF7B96A61B36B802009CF4DF /* ThirdInfoCell.xib in Resources */,
 				A4ACAFE61B2D6DE80037E00C /* head.png in Resources */,
+				EF583E271B37A9C600450E7A /* FirstCell.xib in Resources */,
 				EF7B96AC1B36B836009CF4DF /* FourthInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +641,7 @@
 			files = (
 				A46068891B2F04F100DBF04E /* MenuCell.m in Sources */,
 				A460688A1B2F04F100DBF04E /* ButtonItem.m in Sources */,
+				EF583E201B37A9A800450E7A /* SecondCell.m in Sources */,
 				A460688B1B2F04F100DBF04E /* UIColor+Category.m in Sources */,
 				A460688C1B2F04F100DBF04E /* LoginVC.m in Sources */,
 				A46068A51B2F22D500DBF04E /* BaseInfoCell.m in Sources */,
@@ -615,8 +655,10 @@
 				A46068931B2F04F100DBF04E /* GDataXMLNode.m in Sources */,
 				A460689E1B2F220E00DBF04E /* PersonInfoVC.m in Sources */,
 				A46068941B2F04F100DBF04E /* MBProgressHUD.m in Sources */,
+				EF583E261B37A9C600450E7A /* FirstCell.m in Sources */,
 				EF7B96AB1B36B836009CF4DF /* FourthInfoCell.m in Sources */,
 				A4F664D11B300523006B2BC0 /* LifeWayInfoCell.m in Sources */,
+				EF583E2A1B37AE2700450E7A /* SurveyInfoVC.m in Sources */,
 				A4F6651A1B31CE81006B2BC0 /* XHHealthRequest.m in Sources */,
 				A46068951B2F04F100DBF04E /* SVProgressHUD.m in Sources */,
 				A46068961B2F04F100DBF04E /* FileOperation.m in Sources */,

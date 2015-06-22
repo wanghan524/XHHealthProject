@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FirstCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *left_middleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *right_middleLabel;
 
 @end
