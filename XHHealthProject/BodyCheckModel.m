@@ -10,4 +10,8 @@
 
 @implementation BodyCheckModel
 
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    
+}
+
 @end

@@ -31,4 +31,12 @@ typedef enum ResponseType
 //用户登录
 #define ONLOGIN @"UserLogin"
 
+#define DISEASESTATUS @"GetDiseaseStatusByIDNumber"
+
+#define USERINFO @"GetUserInfoByIDNumber"
+
+#define LIFRSTYLE @"GetLifeStyleByIDNumber"
+
+#define PHYSICALEXAM @"GetPhysicalExamByIDNumber"
+
 #endif
