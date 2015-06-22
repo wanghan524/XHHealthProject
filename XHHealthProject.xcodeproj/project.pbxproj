@@ -45,6 +45,7 @@
 		A4F751B71B37F46D00CEE7BE /* BodyCheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F751B61B37F46D00CEE7BE /* BodyCheckModel.m */; };
 		A4F751BB1B37FA2200CEE7BE /* DiseaseStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F751BA1B37FA2200CEE7BE /* DiseaseStatusModel.m */; };
 		A4F751BF1B37FD9800CEE7BE /* LifeStyleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F751BE1B37FD9800CEE7BE /* LifeStyleModel.m */; };
+		A4F751C31B37FF7200CEE7BE /* FitNessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F751C21B37FF7200CEE7BE /* FitNessModel.m */; };
 		EF583E201B37A9A800450E7A /* SecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF583E1E1B37A9A800450E7A /* SecondCell.m */; };
 		EF583E211B37A9A800450E7A /* SecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF583E1F1B37A9A800450E7A /* SecondCell.xib */; };
 		EF583E261B37A9C600450E7A /* FirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF583E241B37A9C600450E7A /* FirstCell.m */; };
@@ -139,6 +140,8 @@
 		A4F751BA1B37FA2200CEE7BE /* DiseaseStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiseaseStatusModel.m; sourceTree = "<group>"; };
 		A4F751BD1B37FD9800CEE7BE /* LifeStyleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeStyleModel.h; sourceTree = "<group>"; };
 		A4F751BE1B37FD9800CEE7BE /* LifeStyleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeStyleModel.m; sourceTree = "<group>"; };
+		A4F751C11B37FF7200CEE7BE /* FitNessModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FitNessModel.h; sourceTree = "<group>"; };
+		A4F751C21B37FF7200CEE7BE /* FitNessModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FitNessModel.m; sourceTree = "<group>"; };
 		EF583E1D1B37A9A800450E7A /* SecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCell.h; sourceTree = "<group>"; };
 		EF583E1E1B37A9A800450E7A /* SecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCell.m; sourceTree = "<group>"; };
 		EF583E1F1B37A9A800450E7A /* SecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCell.xib; sourceTree = "<group>"; };
@@ -435,6 +438,7 @@
 		A4ACAFF91B2D8C2E0037E00C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A4F751C01B37FF6500CEE7BE /* FitNess */,
 				A4F751BC1B37FD8700CEE7BE /* LifeStyle */,
 				A4F751B81B37FA0500CEE7BE /* DiseaseStatus */,
 				A4F751B41B37F45100CEE7BE /* BodyCheck */,
@@ -553,6 +557,15 @@
 				A4F751BE1B37FD9800CEE7BE /* LifeStyleModel.m */,
 			);
 			name = LifeStyle;
+			sourceTree = "<group>";
+		};
+		A4F751C01B37FF6500CEE7BE /* FitNess */ = {
+			isa = PBXGroup;
+			children = (
+				A4F751C11B37FF7200CEE7BE /* FitNessModel.h */,
+				A4F751C21B37FF7200CEE7BE /* FitNessModel.m */,
+			);
+			name = FitNess;
 			sourceTree = "<group>";
 		};
 		EF583E1C1B37A99300450E7A /* SecondInfoCell */ = {
@@ -735,6 +748,7 @@
 				A46068981B2F04F100DBF04E /* WSURLRequest.m in Sources */,
 				A4F751AF1B37DD1800CEE7BE /* BodyCheckVC.m in Sources */,
 				A46068991B2F04F100DBF04E /* AppDelegate.m in Sources */,
+				A4F751C31B37FF7200CEE7BE /* FitNessModel.m in Sources */,
 				A460689A1B2F04F100DBF04E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
