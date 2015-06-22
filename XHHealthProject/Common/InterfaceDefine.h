@@ -31,4 +31,8 @@ typedef enum ResponseType
 //用户登录
 #define ONLOGIN @"UserLogin"
 
+
+//根据身份证号获取体质数据
+#define FITNESS @"GetFitnessByIDNumber"
+
 #endif
