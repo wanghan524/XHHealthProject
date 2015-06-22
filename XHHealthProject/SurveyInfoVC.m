@@ -125,6 +125,8 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ThirdInfoCell" owner:self options:nil] lastObject];
         }
         return cell;
+        
+        
     }
     else{
         FourthInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
