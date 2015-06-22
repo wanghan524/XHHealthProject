@@ -34,5 +34,7 @@ typedef enum ResponseType
 
 //根据身份证号获取体质数据
 #define FITNESS @"GetFitnessByIDNumber"
+//身体成分
+#define BODYCOM @"GetBodyCompositionByIDNumber"
 
 #endif

@@ -11,7 +11,7 @@
 #import "LoginVC.h"
 #import "PersonInfoVC.h"
 #import "BodyCheckVC.h"
-
+#import "BodyCompositionVC.h"
 #import "SurveyInfoVC.h"
 @interface HomePageVC ()
 @property(nonatomic,strong)XHNavigationView *navView;
@@ -119,6 +119,12 @@
             
             BodyCheckVC *check = [[BodyCheckVC alloc]init];
             [self.navigationController pushViewController:check animated:YES];
+            break;
+        }
+        case 2:
+        {
+            BodyCompositionVC *composition = [[BodyCompositionVC alloc]init];
+            [self.navigationController pushViewController:composition animated:YES];
             break;
         }
             
