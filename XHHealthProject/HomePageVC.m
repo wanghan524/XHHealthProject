@@ -10,6 +10,7 @@
 #import "XHNavigationView.h"
 #import "LoginVC.h"
 #import "PersonInfoVC.h"
+#import "BodyCheckVC.h"
 
 #import "SurveyInfoVC.h"
 @interface HomePageVC ()
@@ -94,6 +95,7 @@
         [btn setTitle:self.btnNameArray[i] forState:UIControlStateNormal];
         btn.titleLabel.adjustsFontSizeToFitWidth = YES;
         [btn addTarget:self action:@selector(infoClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = 10+i;
         [self.view addSubview:btn];
     }
 }
@@ -105,8 +107,24 @@
 //    [self.navigationController pushViewController:vc animated:YES];
     
     
-    SurveyInfoVC *infoVC = [[SurveyInfoVC alloc] init];
-    [self.navigationController pushViewController:infoVC animated:YES];
+    switch (sender.tag - 10) {
+        case 0:
+        {
+            SurveyInfoVC *infoVC = [[SurveyInfoVC alloc] init];
+            [self.navigationController pushViewController:infoVC animated:YES];
+        }
+        break;
+        case 1:
+        {
+            
+            BodyCheckVC *check = [[BodyCheckVC alloc]init];
+            [self.navigationController pushViewController:check animated:YES];
+            break;
+        }
+            
+        default:
+            break;
+    }
 }
 
 
