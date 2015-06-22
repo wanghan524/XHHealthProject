@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XHHealthProject/Common/XHHealthRequest.m"
-            timestampString = "456309180.847569"
+            filePath = "XHHealthProject/BodyCompositionVC.m"
+            timestampString = "456665073.798066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "-connectionDidFinishLoading:"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-startRequest"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XHHealthProject/Common/XHHealthRequest.m"
-            timestampString = "456309678.62505"
+            filePath = "XHHealthProject/BodyCompositionVC.m"
+            timestampString = "456665158.562779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "-xmlParseData:andMethodName:"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-startRequest"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -48,4 +48,6 @@
 #define MIN_WIDTH(A,B) (((A)>(B))?(B):(A))
 
 
+#define CARD @"61010319600411241X"
+
 #endif

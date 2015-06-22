@@ -37,4 +37,6 @@ typedef enum SavePath
 
 +(BOOL)operationCreateFileDictionary:(NSString *)name savePathType:(SaveForDictionaryType)type;
 
+
+
 @end
