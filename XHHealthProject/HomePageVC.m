@@ -13,6 +13,7 @@
 #import "BodyCheckVC.h"
 #import "BodyCompositionVC.h"
 #import "SurveyInfoVC.h"
+#import "PressAndEcg.h"
 @interface HomePageVC ()
 @property(nonatomic,strong)XHNavigationView *navView;
 @property(nonatomic,strong)UIImageView *middleImgView;
@@ -125,6 +126,13 @@
         {
             BodyCompositionVC *composition = [[BodyCompositionVC alloc]init];
             [self.navigationController pushViewController:composition animated:YES];
+            break;
+        }
+        case 3:
+        {
+            PressAndEcg *composition = [[PressAndEcg alloc]init];
+            [self.navigationController pushViewController:composition animated:YES];
+
             break;
         }
             

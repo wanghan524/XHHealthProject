@@ -39,8 +39,9 @@ typedef enum ResponseType
 
 #define PHYSICALEXAM @"GetPhysicalExamByIDNumber"
 
-
-
+//血压，心电
+#define PRESSANDRACE @"GetBloodPressureByIDNumber"
+#define ECG @"GetECGByIDNumber"
 //根据身份证号获取体质数据
 #define FITNESS @"GetFitnessByIDNumber"
 //身体成分

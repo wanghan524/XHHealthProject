@@ -242,7 +242,7 @@
 
 
 - (void)requestBodyData{
-    [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":@"61010319600411241X"} withMethodName:PHYSICALEXAM SuccessRequest:^(id data) {
+    [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":CARD} withMethodName:PHYSICALEXAM SuccessRequest:^(id data) {
         NSArray *resultArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
         if([resultArray count] > 0)
