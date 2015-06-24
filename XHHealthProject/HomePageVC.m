@@ -14,6 +14,9 @@
 #import "BodyCompositionVC.h"
 #import "SurveyInfoVC.h"
 #import "PressAndEcg.h"
+#import "GardiacAndPulmonary.h"
+#import "BMDViewController.h"
+#import "RoutineBloodAndBloodViewController.h"
 @interface HomePageVC ()
 @property(nonatomic,strong)XHNavigationView *navView;
 @property(nonatomic,strong)UIImageView *middleImgView;
@@ -133,6 +136,28 @@
             PressAndEcg *composition = [[PressAndEcg alloc]init];
             [self.navigationController pushViewController:composition animated:YES];
 
+            break;
+        }
+        case 4:
+        {
+            GardiacAndPulmonary *composition = [[GardiacAndPulmonary alloc]init];
+            [self.navigationController pushViewController:composition animated:YES];
+            
+            break;
+        }
+        case 5:
+        {
+            BMDViewController *composition = [[BMDViewController alloc]init];
+            [self.navigationController pushViewController:composition animated:YES];
+            
+            break;
+        }
+            
+        case 7:
+        {
+            RoutineBloodAndBloodViewController *composition = [[RoutineBloodAndBloodViewController alloc]init];
+            [self.navigationController pushViewController:composition animated:YES];
+            
             break;
         }
             

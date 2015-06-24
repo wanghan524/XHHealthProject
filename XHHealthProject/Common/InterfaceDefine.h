@@ -47,5 +47,16 @@ typedef enum ResponseType
 //身体成分
 #define BODYCOM @"GetBodyCompositionByIDNumber"
 
+//心功能
+#define GARDIAC @"GetCardiacFunctionByIDNumber"
+
+//肺功能
+#define PULMONARY @"GetPulmonaryFunctionByIDNumber"
+
+//骨密度
+#define BMD @"GetBMDByIDNumber"
+
+//血常规与血型
+#define ROUTINEBLOODANDBLOOD @"GetRoutineBloodAndBloodTypeByIDNumber"
 
 #endif
