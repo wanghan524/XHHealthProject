@@ -9,5 +9,8 @@
 #import "GardiacModel.h"
 
 @implementation GardiacModel
-
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    DLog(@"%@....",key);
+}
 @end

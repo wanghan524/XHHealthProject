@@ -10,4 +10,10 @@
 
 @implementation RoutineBloodAndBloodModel
 
+
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    DLog(@"%@....",key);
+}
+
 @end

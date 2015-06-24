@@ -9,5 +9,8 @@
 #import "BMDModel.h"
 
 @implementation BMDModel
-
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    DLog(@"%@....",key);
+}
 @end

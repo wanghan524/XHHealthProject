@@ -9,5 +9,8 @@
 #import "pulmonaryModel.h"
 
 @implementation pulmonaryModel
-
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    DLog(@"%@....",key);
+}
 @end
