@@ -23,10 +23,6 @@ typedef enum ResponseType
 #define SOPAACTION @"http://www.dhi-net.com/BeiJingHoLi/index.html/"
 
 
-
-//#define WEBSERVICEDOMAIN @"http://202.105.12.131:11000/JHMobileWCFService?wsdl"
-//#define WEBSERVICEDOMAIN @"http://192.168.60.9:12000/JHMobileWCFService?wsdl"
-
 #define WEBSERVICEDOMAIN @"http://59.108.16.234/Service.asmx"
 //用户登录
 #define ONLOGIN @"UserLogin"
@@ -58,5 +54,16 @@ typedef enum ResponseType
 
 //血常规与血型
 #define ROUTINEBLOODANDBLOOD @"GetRoutineBloodAndBloodTypeByIDNumber"
+//血生化和免疫
+#define BIOCHEMISTRYANDIMMUNITY @"GetBiochemistryAndImmunityByIDNumber"
+
+
+
+//一般检查
+#define EYEGENERALEXAM @"GetEyeGeneralExamByIDNumber"
+//眼科屈光检查
+#define EYEOPHTHALMOLOGYEXAM @"GetEyeOphthalmologyExamByIDNumber"
+//眼科眼底检查
+#define EYEFUNDUSEXAM @"GetEyeFundusExamByIDNumber"
 
 #endif

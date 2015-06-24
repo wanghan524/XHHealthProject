@@ -17,6 +17,8 @@
 #import "GardiacAndPulmonary.h"
 #import "BMDViewController.h"
 #import "RoutineBloodAndBloodViewController.h"
+#import "BiochemistryAndImmunityVC.h"
+#import "EyeFundusExamVC.h"
 @interface HomePageVC ()
 @property(nonatomic,strong)XHNavigationView *navView;
 @property(nonatomic,strong)UIImageView *middleImgView;
@@ -152,12 +154,23 @@
             
             break;
         }
-            
+        case 6:
+        {
+            EyeFundusExamVC *exam = [[EyeFundusExamVC alloc]init];
+            [self.navigationController pushViewController:exam animated:YES];
+            break;
+        }
         case 7:
         {
             RoutineBloodAndBloodViewController *composition = [[RoutineBloodAndBloodViewController alloc]init];
             [self.navigationController pushViewController:composition animated:YES];
             
+            break;
+        }
+        case 8:
+        {
+            BiochemistryAndImmunityVC *biochemistryVC = [[BiochemistryAndImmunityVC alloc]init];
+            [self.navigationController pushViewController:biochemistryVC animated:YES];
             break;
         }
             
