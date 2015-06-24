@@ -392,7 +392,7 @@
     if (indexPath.section == 0) {
         
         
-        PersonInfoModel *personInfoModel = [self.personDataArray objectAtIndex:0];
+        
         
         
         
@@ -408,18 +408,28 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"SecondCell" owner:self options:nil] lastObject];
             }
-        
-            NSString *raceValue = [NSString stringWithFormat:@"%@_value",keyString];
-
-            //DLog(@"%@,%@",[personInfoModel valueForKey:raceValue],[personInfoModel valueForKeyPath:raceValue]);
             
-            cell.left_middleLabel.text = [infoDic objectForKey:keyString];
-            cell.middle_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@_cn",keyString]];
-            cell.middle_middleLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@f_cn",keyString]];
-            cell.middle_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@m_cn",keyString]];
-            cell.right_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
-            cell.right_middleLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@f_value",keyString]];
-            cell.right_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@m_value",keyString]];
+            
+            if (self.personDataArray.count > 0) {
+                PersonInfoModel *personInfoModel = [self.personDataArray objectAtIndex:0];
+                
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.middle_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@_cn",keyString]];
+                cell.middle_middleLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@f_cn",keyString]];
+                cell.middle_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@m_cn",keyString]];
+                cell.right_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
+                cell.right_middleLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@f_value",keyString]];
+                cell.right_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@m_value",keyString]];
+            }else{
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.middle_upLabel.text = @"本人民族";
+                cell.middle_middleLabel.text = @"父亲民族";
+                cell.middle_downLabel.text = @"母亲民族";
+                cell.right_upLabel.text = @"--";
+                cell.right_middleLabel.text = @"--";
+                cell.right_downLabel.text = @"--";
+            }
+            
             return cell;
         }
         
@@ -430,11 +440,21 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"FourthInfoCell" owner:self options:nil] lastObject];
             }
-            cell.left_middleLabel.text = [infoDic objectForKey:keyString];
-            cell.middle_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Birplace_cn"]];
-            cell.middle_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Biraddress_cn"]];
-            cell.right_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Birplace_value"]];;
-            cell.right_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Biraddress_value"]];
+            if (self.personDataArray.count > 0) {
+                PersonInfoModel *personInfoModel = [self.personDataArray objectAtIndex:0];
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.middle_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Birplace_cn"]];
+                cell.middle_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Biraddress_cn"]];
+                cell.right_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Birplace_value"]];;
+                cell.right_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Biraddress_value"]];
+            }else{
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.middle_upLabel.text = @"出生地";
+                cell.middle_downLabel.text = @"出生地址";
+                cell.right_upLabel.text = @"--";
+                cell.right_downLabel.text = @"--";
+            }
+            
             return cell;
         }
         
@@ -446,13 +466,26 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"SecondCell" owner:self options:nil] lastObject];
             }
-            cell.left_middleLabel.text = [infoDic objectForKey:keyString];
-            cell.middle_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"NowPlace_cn"]];
-            cell.middle_middleLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"NowAddress_cn"]];
-            cell.middle_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"MoveTime_cn"]];
-            cell.right_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"NowPlace_value"]];;
-            cell.right_middleLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"NowAddress_value"]];
-            cell.right_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"MoveTime_value"]];
+            if (self.personDataArray.count > 0) {
+                PersonInfoModel *personInfoModel = [self.personDataArray objectAtIndex:0];
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.middle_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"NowPlace_cn"]];
+                cell.middle_middleLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"NowAddress_cn"]];
+                cell.middle_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"MoveTime_cn"]];
+                cell.right_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"NowPlace_value"]];;
+                cell.right_middleLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"NowAddress_value"]];
+                cell.right_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"MoveTime_value"]];
+            }else{
+                
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.middle_upLabel.text = @"现住址";
+                cell.middle_middleLabel.text = @"移居时间";
+                cell.middle_downLabel.text = @"移居时间";
+                cell.right_upLabel.text = @"--";
+                cell.right_middleLabel.text = @"--";
+                cell.right_downLabel.text = @"--";
+            }
+            
             return cell;
         }
         else if ([keyString isEqualToString:@"Call"]){
@@ -462,11 +495,23 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"FourthInfoCell" owner:self options:nil] lastObject];
             }
-            cell.left_middleLabel.text = [infoDic objectForKey:keyString];
-            cell.middle_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Call_cn"]];
-            cell.middle_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"CellPhone_cn"]];
-            cell.right_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Call_value"]];
-            cell.right_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"CellPhone_value"]];
+            if (self.personDataArray.count > 0) {
+                PersonInfoModel *personInfoModel = [self.personDataArray objectAtIndex:0];
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.middle_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Call_cn"]];
+                cell.middle_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"CellPhone_cn"]];
+                cell.right_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Call_value"]];
+                cell.right_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"CellPhone_value"]];
+            }else{
+                
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.middle_upLabel.text = @"联系电话";
+                cell.middle_downLabel.text = @"手机";
+                cell.right_upLabel.text = @"--";
+                cell.right_downLabel.text = @"--";
+            }
+            
+            
             return cell;
         }
         
@@ -478,11 +523,23 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"FourthInfoCell" owner:self options:nil] lastObject];
             }
-            cell.left_middleLabel.text = [infoDic objectForKey:keyString];
-            cell.middle_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Elevelm_cn"]];
-            cell.middle_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Elevely_cn"]];
-            cell.right_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Elevelm_value"]];
-            cell.right_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Elevely_value"]];
+            
+            if (self.personDataArray.count > 0) {
+                PersonInfoModel *personInfoModel = [self.personDataArray objectAtIndex:0];
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.middle_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Elevelm_cn"]];
+                cell.middle_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Elevely_cn"]];
+                cell.right_upLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Elevelm_value"]];
+                cell.right_downLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"Elevely_value"]];
+            }else{
+                
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.middle_upLabel.text = @"个人月收";
+                cell.middle_downLabel.text = @"个人年收";
+                cell.right_upLabel.text = @"--";
+                cell.right_downLabel.text = @"--";
+            }
+            
             return cell;
         }
         else{
@@ -499,8 +556,18 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"FirstCell" owner:self options:nil] lastObject];
             }
-            cell.left_middleLabel.text = [infoDic objectForKey:keyString];
-            cell.right_middleLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
+            
+            
+            if (self.personDataArray.count > 0) {
+                PersonInfoModel *personInfoModel = [self.personDataArray objectAtIndex:0];
+                cell.left_middleLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@_cn",keyString]];
+                cell.right_middleLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
+            }else{
+                
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.right_middleLabel.text = @"--";
+            }
+            
             return cell;
         }
     
@@ -511,7 +578,7 @@
     
     else if (indexPath.section == 1){
         
-        BodyCheckModel *bodyCheckModel = [self.bodyDataArray objectAtIndex:0];
+        
         
         static NSString *thirdIdentifier = @"ThirdInfoCell";
         
@@ -524,9 +591,18 @@
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ThirdInfoCell" owner:self options:nil] lastObject];
         }
         
-        cell.thirdFierstLabel.text = [infoDic objectForKey:keyString];
-        cell.thirdSecondLabel.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
-        cell.thirdThirdLabel.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_refinterVal",keyString]];
+        if (self.bodyDataArray.count > 0) {
+            BodyCheckModel *bodyCheckModel = [self.bodyDataArray objectAtIndex:0];
+            cell.thirdFierstLabel.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_cn",keyString]];
+            cell.thirdSecondLabel.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
+            cell.thirdThirdLabel.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_refinterVal",keyString]];
+        }else{
+            cell.thirdFierstLabel.text = [infoDic objectForKey:keyString];
+            cell.thirdSecondLabel.text = @"--";
+            cell.thirdThirdLabel.text = @"--";
+        }
+        
+        
         
         return cell;
         
@@ -538,7 +614,7 @@
     
     else if (indexPath.section == 2){
         
-        DiseaseStatusModel *diseaseStatusModel = [self.diseaseDataArray objectAtIndex:0];
+        
         
         static NSString *nowIdentifier = @"firstCell";
         
@@ -550,8 +626,16 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"FirstCell" owner:self options:nil] lastObject];
         }
-        cell.left_middleLabel.text = [infoDic objectForKey:keyString];
-        cell.right_middleLabel.text = [diseaseStatusModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
+        
+        if(self.diseaseDataArray.count > 0){
+            DiseaseStatusModel *diseaseStatusModel = [self.diseaseDataArray objectAtIndex:0];
+            cell.left_middleLabel.text = [diseaseStatusModel valueForKeyPath:[NSString stringWithFormat:@"%@_cn",keyString]];
+            cell.right_middleLabel.text = [diseaseStatusModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
+        }else{
+            cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+            cell.right_middleLabel.text = @"--";
+        }
+        
         return cell;
         
     }
@@ -563,7 +647,7 @@
     
     else{
         
-        LifeStyleModel *lifeStyleModel = [self.liftDataArray objectAtIndex:0];
+       
         NSDictionary *infoDic = [self.fourthSectionArray objectAtIndex:indexPath.row];
         
         NSString *keyString = [[infoDic allKeys] firstObject];
@@ -586,8 +670,21 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"FirstCell" owner:self options:nil] lastObject];
             }
-            cell.left_middleLabel.text = [infoDic objectForKey:keyString];
-            cell.right_middleLabel.text = [lifeStyleModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
+            
+            if (self.liftDataArray.count > 0) {
+                LifeStyleModel *lifeStyleModel = [self.liftDataArray objectAtIndex:0];
+                
+                cell.left_middleLabel.text = [lifeStyleModel valueForKeyPath:[NSString stringWithFormat:@"%@_cn",keyString]];
+                cell.right_middleLabel.text = [lifeStyleModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
+            }else{
+                cell.left_middleLabel.text = [infoDic objectForKey:keyString];
+                cell.right_middleLabel.text = @"--";
+            }
+            
+            
+            
+            
+            
             return cell;
         }
         
