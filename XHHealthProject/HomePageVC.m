@@ -19,7 +19,8 @@
 #import "RoutineBloodAndBloodViewController.h"
 #import "BiochemistryAndImmunityVC.h"
 #import "EyeFundusExamVC.h"
-@interface HomePageVC ()
+#import "ButtonCollectionCell.h"
+@interface HomePageVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property(nonatomic,strong)XHNavigationView *navView;
 @property(nonatomic,strong)UIImageView *middleImgView;
 @property(nonatomic,strong)UIButton *selfCheckBtn;
@@ -28,6 +29,8 @@
 @property(nonatomic,strong)UILabel *bottomLab;
 
 @property(nonatomic,strong)NSMutableArray *btnNameArray;
+@property(nonatomic,strong)NSMutableArray *imgNameArray;
+@property(nonatomic,strong)UICollectionView *collection;
 
 
 @end
@@ -36,6 +39,7 @@
 {
     CGFloat perWidth;
     CGFloat perHeight;
+    CGFloat perWidthT;
 }
 
 - (void)viewDidLoad {
@@ -47,10 +51,133 @@
     [self setBtnNameBtn];
     [self buildsearchView];
     [self calculationPerWidthOrHeight];
-
-    [self buildNineBtn];
+    [self buildCollection];
+//    [self buildNineBtn];
     [self buildBottom];
 }
+
+-(void)buildCollection
+{
+    
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    flowLayout.itemSize = CGSizeMake(perWidthT, perWidthT);
+    flowLayout.minimumLineSpacing = 1.f;
+    flowLayout.minimumInteritemSpacing = 0.f;
+    
+    self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0,CGRectGetMaxY(self.middleImgView.frame)+20, ScreenWidth, ScreenHeight - (CGRectGetMaxY(self.middleImgView.frame) + 50)) collectionViewLayout:flowLayout];
+    self.collection.backgroundColor = [UIColor lightGrayColor];
+    self.collection.dataSource = self;
+    self.collection.delegate = self;
+    [self.view addSubview:self.collection];
+    
+    [self.collection registerNib:[UINib nibWithNibName:@"ButtonCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"ButtonCollectionCell"];
+    
+    
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ButtonCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ButtonCollectionCell" forIndexPath:indexPath];
+    if(!cell)
+    {
+        cell = [[ButtonCollectionCell alloc]init];
+    }
+    cell.backgroundColor = [UIColor whiteColor];
+    NSString *imgName = [NSString stringWithFormat:@"%d.png",indexPath.row+1];
+    cell.buttonImg.image = [UIImage imageNamed:imgName];
+    cell.buttonLab.text = self.btnNameArray[indexPath.row];
+    return cell;
+}
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(perWidthT, perWidthT);
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(1, 0, 1, 0);
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 9;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.item) {
+        case 0:
+        {
+            SurveyInfoVC *infoVC = [[SurveyInfoVC alloc] init];
+            [self.navigationController pushViewController:infoVC animated:YES];
+        }
+            break;
+        case 1:
+        {
+            
+            BodyCheckVC *check = [[BodyCheckVC alloc]init];
+            [self.navigationController pushViewController:check animated:YES];
+            break;
+        }
+        case 2:
+        {
+            BodyCompositionVC *composition = [[BodyCompositionVC alloc]init];
+            [self.navigationController pushViewController:composition animated:YES];
+            break;
+        }
+        case 3:
+        {
+            PressAndEcg *composition = [[PressAndEcg alloc]init];
+            [self.navigationController pushViewController:composition animated:YES];
+            
+            break;
+        }
+        case 4:
+        {
+            GardiacAndPulmonary *composition = [[GardiacAndPulmonary alloc]init];
+            [self.navigationController pushViewController:composition animated:YES];
+            
+            break;
+        }
+        case 5:
+        {
+            BMDViewController *composition = [[BMDViewController alloc]init];
+            [self.navigationController pushViewController:composition animated:YES];
+            
+            break;
+        }
+        case 6:
+        {
+            EyeFundusExamVC *exam = [[EyeFundusExamVC alloc]init];
+            [self.navigationController pushViewController:exam animated:YES];
+            break;
+        }
+        case 7:
+        {
+            RoutineBloodAndBloodViewController *composition = [[RoutineBloodAndBloodViewController alloc]init];
+            [self.navigationController pushViewController:composition animated:YES];
+            
+            break;
+        }
+        case 8:
+        {
+            BiochemistryAndImmunityVC *biochemistryVC = [[BiochemistryAndImmunityVC alloc]init];
+            [self.navigationController pushViewController:biochemistryVC animated:YES];
+            break;
+        }
+            
+        default:
+            break;
+    }
+
+}
+
+
 
 
 -(void)setBtnNameBtn
@@ -91,98 +218,15 @@
 }
 
 
--(void)buildNineBtn
-{
-    for(NSInteger i = 0 ;i < 9; i++)
-    {
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.backgroundColor = NAVColor;
-        btn.frame = CGRectMake(i%3*perWidth+i%3*1,CGRectGetMaxY(self.middleImgView.frame)+20+i/3*perHeight+1*(i/3), perWidth, perHeight);
-        [btn setTitle:self.btnNameArray[i] forState:UIControlStateNormal];
-        btn.titleLabel.adjustsFontSizeToFitWidth = YES;
-        [btn addTarget:self action:@selector(infoClick:) forControlEvents:UIControlEventTouchUpInside];
-        btn.tag = 10+i;
-        [self.view addSubview:btn];
-    }
-}
 
 
--(void)infoClick:(UIButton *)sender
-{
-//    PersonInfoVC *vc = [[PersonInfoVC alloc]init];
-//    [self.navigationController pushViewController:vc animated:YES];
-    
-    
-    switch (sender.tag - 10) {
-        case 0:
-        {
-            SurveyInfoVC *infoVC = [[SurveyInfoVC alloc] init];
-            [self.navigationController pushViewController:infoVC animated:YES];
-        }
-        break;
-        case 1:
-        {
-            
-            BodyCheckVC *check = [[BodyCheckVC alloc]init];
-            [self.navigationController pushViewController:check animated:YES];
-            break;
-        }
-        case 2:
-        {
-            BodyCompositionVC *composition = [[BodyCompositionVC alloc]init];
-            [self.navigationController pushViewController:composition animated:YES];
-            break;
-        }
-        case 3:
-        {
-            PressAndEcg *composition = [[PressAndEcg alloc]init];
-            [self.navigationController pushViewController:composition animated:YES];
 
-            break;
-        }
-        case 4:
-        {
-            GardiacAndPulmonary *composition = [[GardiacAndPulmonary alloc]init];
-            [self.navigationController pushViewController:composition animated:YES];
-            
-            break;
-        }
-        case 5:
-        {
-            BMDViewController *composition = [[BMDViewController alloc]init];
-            [self.navigationController pushViewController:composition animated:YES];
-            
-            break;
-        }
-        case 6:
-        {
-            EyeFundusExamVC *exam = [[EyeFundusExamVC alloc]init];
-            [self.navigationController pushViewController:exam animated:YES];
-            break;
-        }
-        case 7:
-        {
-            RoutineBloodAndBloodViewController *composition = [[RoutineBloodAndBloodViewController alloc]init];
-            [self.navigationController pushViewController:composition animated:YES];
-            
-            break;
-        }
-        case 8:
-        {
-            BiochemistryAndImmunityVC *biochemistryVC = [[BiochemistryAndImmunityVC alloc]init];
-            [self.navigationController pushViewController:biochemistryVC animated:YES];
-            break;
-        }
-            
-        default:
-            break;
-    }
-}
 
 
 
 -(void)setBgColor
 {
+    perWidthT = (ScreenWidth-2)/3.f;
     [self.view setBackgroundColor:COLOR(245, 245, 245, 1)];
 }
 
