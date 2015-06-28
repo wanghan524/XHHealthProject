@@ -118,6 +118,7 @@
 		A4F752FD1B3FDF1D00CEE7BE /* LoginResutltModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F752FC1B3FDF1D00CEE7BE /* LoginResutltModel.m */; };
 		A4F753011B3FE01000CEE7BE /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F753001B3FE01000CEE7BE /* HeadView.m */; };
 		A4F753031B3FE37A00CEE7BE /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F753021B3FE37A00CEE7BE /* more.png */; };
+		A4F753051B3FE7C600CEE7BE /* nologin.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F753041B3FE7C600CEE7BE /* nologin.png */; };
 		EF2880531B3A51D200E073A7 /* GardiacAndPulmonary.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2880521B3A51D200E073A7 /* GardiacAndPulmonary.m */; };
 		EF28805D1B3A714200E073A7 /* PulmonaryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF28805B1B3A714200E073A7 /* PulmonaryInfoCell.m */; };
 		EF28805E1B3A714200E073A7 /* PulmonaryInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF28805C1B3A714200E073A7 /* PulmonaryInfoCell.xib */; };
@@ -331,6 +332,7 @@
 		A4F752FF1B3FE01000CEE7BE /* HeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadView.h; sourceTree = "<group>"; };
 		A4F753001B3FE01000CEE7BE /* HeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadView.m; sourceTree = "<group>"; };
 		A4F753021B3FE37A00CEE7BE /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
+		A4F753041B3FE7C600CEE7BE /* nologin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nologin.png; sourceTree = "<group>"; };
 		EF2880511B3A51D200E073A7 /* GardiacAndPulmonary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GardiacAndPulmonary.h; sourceTree = "<group>"; };
 		EF2880521B3A51D200E073A7 /* GardiacAndPulmonary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GardiacAndPulmonary.m; sourceTree = "<group>"; };
 		EF28805A1B3A714200E073A7 /* PulmonaryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulmonaryInfoCell.h; sourceTree = "<group>"; };
@@ -611,7 +613,6 @@
 		A4ACAFE31B2D6D5F0037E00C /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				A4F753021B3FE37A00CEE7BE /* more.png */,
 				A4F752751B3D8AA100CEE7BE /* Head */,
 				A4F752391B3C536100CEE7BE /* Button */,
 				A4ACB0131B2EA44C0037E00C /* Nav */,
@@ -623,7 +624,9 @@
 		A4ACAFE41B2D6D690037E00C /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A4F753021B3FE37A00CEE7BE /* more.png */,
 				A4ACAFEC1B2D7CA60037E00C /* self.png */,
+				A4F753041B3FE7C600CEE7BE /* nologin.png */,
 				A4ACAFEA1B2D7C5A0037E00C /* searchbg.jpg */,
 				A4ACAFE51B2D6DE80037E00C /* head.png */,
 			);
@@ -1278,6 +1281,7 @@
 				A4F7524F1B3C537300CEE7BE /* 2.png in Resources */,
 				A4F752541B3C537300CEE7BE /* 5_no.png in Resources */,
 				A46068A61B2F22D500DBF04E /* BaseInfoCell.xib in Resources */,
+				A4F753051B3FE7C600CEE7BE /* nologin.png in Resources */,
 				A4F752511B3C537300CEE7BE /* 3.png in Resources */,
 				A4F752341B3AF47800CEE7BE /* EyeFundusExam.xib in Resources */,
 				A4F7525D1B3C537300CEE7BE /* 9.png in Resources */,

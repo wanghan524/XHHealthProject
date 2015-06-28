@@ -8,9 +8,11 @@
 
 #import "LeftMenuVC.h"
 #import "MenuCell.h"
+#import "HeadView.h"
 @interface LeftMenuVC ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView *menuTableView;
 @property(nonatomic,strong)NSMutableArray *btnNameArray;
+@property(nonatomic,strong)HeadView *head;
 
 
 @end
@@ -20,32 +22,48 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadImgStr];
+    [self buildHeadView];
     [self buildMenuTable];
+    
    
+}
+-(void)headButtonClick:(UIButton *)btn
+{
+    
+}
+-(void)buildHeadView
+{
+    self.head  = [[HeadView alloc]initWithFrame:CGRectMake(0, 20, 200, 135   )];
+    self.head.headImgView.image = [UIImage imageNamed:@"nologin"];
+    self.head.name.text = @"请登录";
+    self.head.indicatorImgView.image = [UIImage imageNamed:@"more"];
+    [self.head.button addTarget:self action:@selector(headButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.head];
+    
 }
 
 
 #pragma mark tableviewDelegate
 
 
--(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
-{
-    return 80.f;
-}
--(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    static NSString *head = @"HEADS";
-    UITableViewHeaderFooterView *headView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:head];
-    if(headView == nil)
-    {
-        headView = [[UITableViewHeaderFooterView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 80)];
-    }
-    headView.textLabel.text = @"请登录 》";
-    
-    
-    return headView;
-}
-
+//-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
+//{
+//    return 80.f;
+//}
+//-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    static NSString *head = @"HEADS";
+//    UITableViewHeaderFooterView *headView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:head];
+//    if(headView == nil)
+//    {
+//        headView = [[UITableViewHeaderFooterView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 80)];
+//    }
+//    headView.textLabel.text = @"请登录 》";
+//    
+//    
+//    return headView;
+//}
+//
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -98,11 +116,16 @@
 
 -(void)buildMenuTable
 {
+    if(CD(7))
+    {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
     
-    self.menuTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStyleGrouped];
+    self.menuTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.head.frame)+5, ScreenWidth, ScreenHeight - 5 - CGRectGetMaxY(self.head.frame)) style:UITableViewStylePlain];
     self.menuTableView.delegate = self;
     self.menuTableView.dataSource = self;
     self.menuTableView.separatorInset = UIEdgeInsetsZero;
+
 
 
     [self.view addSubview:self.menuTableView];
