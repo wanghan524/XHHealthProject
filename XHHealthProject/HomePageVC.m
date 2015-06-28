@@ -20,6 +20,7 @@
 #import "BiochemistryAndImmunityVC.h"
 #import "EyeFundusExamVC.h"
 #import "ButtonCollectionCell.h"
+#import "SelfCheckVC.h"
 @interface HomePageVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property(nonatomic,strong)XHNavigationView *navView;
 @property(nonatomic,strong)UIImageView *middleImgView;
@@ -254,9 +255,18 @@
     self.selfCheckBtn.backgroundColor = [UIColor clearColor];
     [self.selfCheckBtn setFrame:CGRectMake(ScreenWidth - 140, 64, 60, 80)];
     [self.selfCheckBtn setImage:[UIImage imageNamed:@"self"] forState:UIControlStateNormal];
+    [self.selfCheckBtn addTarget:self action:@selector(selfCheckBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.selfCheckBtn];
     
 }
+
+-(void)selfCheckBtnClick:(UIButton *)btn
+{
+    SelfCheckVC *vc = [[SelfCheckVC alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
 
 -(void)buildMiddleImg
 {
