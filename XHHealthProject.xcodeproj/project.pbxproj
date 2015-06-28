@@ -131,6 +131,11 @@
 		EF2880711B3ABC1000E073A7 /* RoutineBloodAndBloodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2880701B3ABC1000E073A7 /* RoutineBloodAndBloodModel.m */; };
 		EF2880751B3ABEFF00E073A7 /* RoutineBloodAndBloodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2880741B3ABEFF00E073A7 /* RoutineBloodAndBloodViewController.m */; };
 		EF574DDE1B3FDF4300A63BC3 /* PersonInfoSingleTon.m in Sources */ = {isa = PBXBuildFile; fileRef = EF574DDD1B3FDF4300A63BC3 /* PersonInfoSingleTon.m */; };
+		EF574DE41B3FE1A000A63BC3 /* PersonInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF574DE31B3FE1A000A63BC3 /* PersonInfoViewController.m */; };
+		EF574DE91B3FE36800A63BC3 /* HeaderImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF574DE71B3FE36800A63BC3 /* HeaderImageCell.m */; };
+		EF574DEA1B3FE36800A63BC3 /* HeaderImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF574DE81B3FE36800A63BC3 /* HeaderImageCell.xib */; };
+		EF574DEE1B3FE38500A63BC3 /* PersonOtherInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF574DEC1B3FE38500A63BC3 /* PersonOtherInfoCell.m */; };
+		EF574DEF1B3FE38500A63BC3 /* PersonOtherInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF574DED1B3FE38500A63BC3 /* PersonOtherInfoCell.xib */; };
 		EF583E201B37A9A800450E7A /* SecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF583E1E1B37A9A800450E7A /* SecondCell.m */; };
 		EF583E211B37A9A800450E7A /* SecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF583E1F1B37A9A800450E7A /* SecondCell.xib */; };
 		EF583E261B37A9C600450E7A /* FirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF583E241B37A9C600450E7A /* FirstCell.m */; };
@@ -358,6 +363,14 @@
 		EF2880741B3ABEFF00E073A7 /* RoutineBloodAndBloodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutineBloodAndBloodViewController.m; sourceTree = "<group>"; };
 		EF574DDC1B3FDF4300A63BC3 /* PersonInfoSingleTon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoSingleTon.h; sourceTree = "<group>"; };
 		EF574DDD1B3FDF4300A63BC3 /* PersonInfoSingleTon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoSingleTon.m; sourceTree = "<group>"; };
+		EF574DE21B3FE1A000A63BC3 /* PersonInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoViewController.h; sourceTree = "<group>"; };
+		EF574DE31B3FE1A000A63BC3 /* PersonInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoViewController.m; sourceTree = "<group>"; };
+		EF574DE61B3FE36800A63BC3 /* HeaderImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderImageCell.h; sourceTree = "<group>"; };
+		EF574DE71B3FE36800A63BC3 /* HeaderImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderImageCell.m; sourceTree = "<group>"; };
+		EF574DE81B3FE36800A63BC3 /* HeaderImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderImageCell.xib; sourceTree = "<group>"; };
+		EF574DEB1B3FE38500A63BC3 /* PersonOtherInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonOtherInfoCell.h; sourceTree = "<group>"; };
+		EF574DEC1B3FE38500A63BC3 /* PersonOtherInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonOtherInfoCell.m; sourceTree = "<group>"; };
+		EF574DED1B3FE38500A63BC3 /* PersonOtherInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonOtherInfoCell.xib; sourceTree = "<group>"; };
 		EF583E1D1B37A9A800450E7A /* SecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCell.h; sourceTree = "<group>"; };
 		EF583E1E1B37A9A800450E7A /* SecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCell.m; sourceTree = "<group>"; };
 		EF583E1F1B37A9A800450E7A /* SecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCell.xib; sourceTree = "<group>"; };
@@ -601,7 +614,10 @@
 		A4ACAFDB1B2D68240037E00C /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				A4F753061B3FEC6000CEE7BE /* SelfCheck */,
+
+
+				EF574DE11B3FE18300A63BC3 /* PersonInfoVC */,
+
 				A4F752351B3B05A600CEE7BE /* EyeFundusExamVC */,
 				A4F752191B3AE45800CEE7BE /* BiochemistryAndImmunityVC */,
 				EF2880721B3ABEF100E073A7 /* RoutineBloodAndBloodVC */,
@@ -720,6 +736,7 @@
 		A4ACB0081B2DBEA60037E00C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				EF574DE51B3FE33E00A63BC3 /* personInfoCell */,
 				A4F7525E1B3C538700CEE7BE /* ButtonCollectionCell */,
 				A4F7522F1B3AF44E00CEE7BE /* EyeFundusExamCell */,
 				A4F752291B3AF35D00CEE7BE /* EyeGenerCheckCell */,
@@ -1155,6 +1172,28 @@
 			name = RoutineBloodAndBloodVC;
 			sourceTree = "<group>";
 		};
+		EF574DE11B3FE18300A63BC3 /* PersonInfoVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF574DE21B3FE1A000A63BC3 /* PersonInfoViewController.h */,
+				EF574DE31B3FE1A000A63BC3 /* PersonInfoViewController.m */,
+			);
+			name = PersonInfoVC;
+			sourceTree = "<group>";
+		};
+		EF574DE51B3FE33E00A63BC3 /* personInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF574DE61B3FE36800A63BC3 /* HeaderImageCell.h */,
+				EF574DE71B3FE36800A63BC3 /* HeaderImageCell.m */,
+				EF574DE81B3FE36800A63BC3 /* HeaderImageCell.xib */,
+				EF574DEB1B3FE38500A63BC3 /* PersonOtherInfoCell.h */,
+				EF574DEC1B3FE38500A63BC3 /* PersonOtherInfoCell.m */,
+				EF574DED1B3FE38500A63BC3 /* PersonOtherInfoCell.xib */,
+			);
+			name = personInfoCell;
+			sourceTree = "<group>";
+		};
 		EF583E1C1B37A99300450E7A /* SecondInfoCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1309,10 +1348,12 @@
 				A46068A61B2F22D500DBF04E /* BaseInfoCell.xib in Resources */,
 				A4F753051B3FE7C600CEE7BE /* nologin.png in Resources */,
 				A4F752511B3C537300CEE7BE /* 3.png in Resources */,
+				EF574DEF1B3FE38500A63BC3 /* PersonOtherInfoCell.xib in Resources */,
 				A4F752341B3AF47800CEE7BE /* EyeFundusExam.xib in Resources */,
 				A4F7525D1B3C537300CEE7BE /* 9.png in Resources */,
 				A4F752501B3C537300CEE7BE /* 3_no.png in Resources */,
 				A4F7522E1B3AF37F00CEE7BE /* EyeGenerCheckCell.xib in Resources */,
+				EF574DEA1B3FE36800A63BC3 /* HeaderImageCell.xib in Resources */,
 				A4F752591B3C537300CEE7BE /* 7.png in Resources */,
 				A4F7528F1B3D8AC300CEE7BE /* shenghua.png in Resources */,
 				A4F7528D1B3D8AC300CEE7BE /* eye.png in Resources */,
@@ -1361,6 +1402,7 @@
 				A4F7521C1B3AE46A00CEE7BE /* BiochemistryAndImmunityVC.m in Sources */,
 				A4F752331B3AF47800CEE7BE /* EyeFundusExam.m in Sources */,
 				A4F752181B3AE10100CEE7BE /* BiochemistryAndImmunityModel.m in Sources */,
+				EF574DE91B3FE36800A63BC3 /* HeaderImageCell.m in Sources */,
 				A460688E1B2F04F100DBF04E /* HomePageVC.m in Sources */,
 				A460688F1B2F04F100DBF04E /* BaseVC.m in Sources */,
 				A4F751FC1B38272C00CEE7BE /* UIView+WebCacheOperation.m in Sources */,
@@ -1371,6 +1413,7 @@
 				A46068911B2F04F100DBF04E /* UIViewController+MMDrawerController.m in Sources */,
 				A46068921B2F04F100DBF04E /* MMDrawerController.m in Sources */,
 				A4F752FD1B3FDF1D00CEE7BE /* LoginResutltModel.m in Sources */,
+				EF574DEE1B3FE38500A63BC3 /* PersonOtherInfoCell.m in Sources */,
 				A4F751FA1B38272C00CEE7BE /* UIImageView+HighlightedWebCache.m in Sources */,
 				A4F752381B3B05CD00CEE7BE /* EyeFundusExamVC.m in Sources */,
 				A4F751F71B38272C00CEE7BE /* UIImage+GIF.m in Sources */,
@@ -1401,6 +1444,7 @@
 				A4F664D11B300523006B2BC0 /* LifeWayInfoCell.m in Sources */,
 				EF583E2A1B37AE2700450E7A /* SurveyInfoVC.m in Sources */,
 				A4F751F91B38272C00CEE7BE /* UIImage+WebP.m in Sources */,
+				EF574DE41B3FE1A000A63BC3 /* PersonInfoViewController.m in Sources */,
 				EF2880751B3ABEFF00E073A7 /* RoutineBloodAndBloodViewController.m in Sources */,
 				A4F6651A1B31CE81006B2BC0 /* XHHealthRequest.m in Sources */,
 				A46068951B2F04F100DBF04E /* SVProgressHUD.m in Sources */,

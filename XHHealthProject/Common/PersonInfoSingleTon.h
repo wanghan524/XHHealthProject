@@ -21,4 +21,5 @@
 @property (nonatomic, strong) NSString *userImageString;
 @property (nonatomic, strong) NSString *userNameString;
 
+@property (nonatomic, strong) NSString *idNumberString;
 @end
