@@ -7,16 +7,32 @@
 //
 
 #import "PersonLoginInfoVC.h"
+#import "XHNavigationView.h"
+#import "WSRequestManager.h"
 
 @interface PersonLoginInfoVC ()
-
+@property(nonatomic,strong)XHNavigationView *navView;
 @end
 
 @implementation PersonLoginInfoVC
+-(void)bulidNav
+{
+    self.navView = [[XHNavigationView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth,64)];
+    [self.navView layoutXHNavWithType:Type_LoginNav];
+    self.navView.backgroundColor = NAVColor;
+    [self.navView.btn_login setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [self.navView.btn_login addTarget:self action:@selector(backBtn:) forControlEvents:UIControlEventTouchUpInside];
+    self.navView.lbl_login_middle.text = @"登录";
+    [self.view addSubview:self.navView];
+}
 
+-(void)backBtn:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self bulidNav];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +40,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

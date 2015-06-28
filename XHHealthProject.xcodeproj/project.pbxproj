@@ -115,6 +115,7 @@
 		A4F752901B3D8AC300CEE7BE /* 项目详情.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F752821B3D8AC300CEE7BE /* 项目详情.png */; };
 		A4F752911B3D8AC300CEE7BE /* point.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F752831B3D8AC300CEE7BE /* point.png */; };
 		A4F752F91B3FCF0500CEE7BE /* PersonLoginInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F752F81B3FCF0500CEE7BE /* PersonLoginInfoVC.m */; };
+		A4F752FD1B3FDF1D00CEE7BE /* LoginResutltModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F752FC1B3FDF1D00CEE7BE /* LoginResutltModel.m */; };
 		EF2880531B3A51D200E073A7 /* GardiacAndPulmonary.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2880521B3A51D200E073A7 /* GardiacAndPulmonary.m */; };
 		EF28805D1B3A714200E073A7 /* PulmonaryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF28805B1B3A714200E073A7 /* PulmonaryInfoCell.m */; };
 		EF28805E1B3A714200E073A7 /* PulmonaryInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF28805C1B3A714200E073A7 /* PulmonaryInfoCell.xib */; };
@@ -322,6 +323,8 @@
 		A4F752831B3D8AC300CEE7BE /* point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point.png; sourceTree = "<group>"; };
 		A4F752F71B3FCF0500CEE7BE /* PersonLoginInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonLoginInfoVC.h; sourceTree = "<group>"; };
 		A4F752F81B3FCF0500CEE7BE /* PersonLoginInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonLoginInfoVC.m; sourceTree = "<group>"; };
+		A4F752FB1B3FDF1D00CEE7BE /* LoginResutltModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginResutltModel.h; sourceTree = "<group>"; };
+		A4F752FC1B3FDF1D00CEE7BE /* LoginResutltModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginResutltModel.m; sourceTree = "<group>"; };
 		EF2880511B3A51D200E073A7 /* GardiacAndPulmonary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GardiacAndPulmonary.h; sourceTree = "<group>"; };
 		EF2880521B3A51D200E073A7 /* GardiacAndPulmonary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GardiacAndPulmonary.m; sourceTree = "<group>"; };
 		EF28805A1B3A714200E073A7 /* PulmonaryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulmonaryInfoCell.h; sourceTree = "<group>"; };
@@ -645,6 +648,7 @@
 		A4ACAFF91B2D8C2E0037E00C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A4F752FA1B3FDEC100CEE7BE /* LoginResult */,
 				A4F752251B3AF1EA00CEE7BE /* EyeFundusExam */,
 				A4F752211B3AEFE300CEE7BE /* EyeOphthalmologyExam */,
 				A4F7521D1B3AEDFF00CEE7BE /* EyeGeneralExam */,
@@ -1026,6 +1030,15 @@
 			name = PersonInfo;
 			sourceTree = "<group>";
 		};
+		A4F752FA1B3FDEC100CEE7BE /* LoginResult */ = {
+			isa = PBXGroup;
+			children = (
+				A4F752FB1B3FDF1D00CEE7BE /* LoginResutltModel.h */,
+				A4F752FC1B3FDF1D00CEE7BE /* LoginResutltModel.m */,
+			);
+			name = LoginResult;
+			sourceTree = "<group>";
+		};
 		EF2880501B3A518B00E073A7 /* GardiacAndPulmonary */ = {
 			isa = PBXGroup;
 			children = (
@@ -1304,6 +1317,7 @@
 				A4F751F41B38272C00CEE7BE /* SDWebImageManager.m in Sources */,
 				A46068911B2F04F100DBF04E /* UIViewController+MMDrawerController.m in Sources */,
 				A46068921B2F04F100DBF04E /* MMDrawerController.m in Sources */,
+				A4F752FD1B3FDF1D00CEE7BE /* LoginResutltModel.m in Sources */,
 				A4F751FA1B38272C00CEE7BE /* UIImageView+HighlightedWebCache.m in Sources */,
 				A4F752381B3B05CD00CEE7BE /* EyeFundusExamVC.m in Sources */,
 				A4F751F71B38272C00CEE7BE /* UIImage+GIF.m in Sources */,
