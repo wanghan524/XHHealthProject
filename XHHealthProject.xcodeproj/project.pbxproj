@@ -100,6 +100,21 @@
 		A4F7525D1B3C537300CEE7BE /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F7524B1B3C537300CEE7BE /* 9.png */; };
 		A4F752621B3C53BD00CEE7BE /* ButtonCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F752601B3C53BD00CEE7BE /* ButtonCollectionCell.m */; };
 		A4F752631B3C53BD00CEE7BE /* ButtonCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F752611B3C53BD00CEE7BE /* ButtonCollectionCell.xib */; };
+		A4F752841B3D8AC300CEE7BE /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F752761B3D8AC300CEE7BE /* top.png */; };
+		A4F752851B3D8AC300CEE7BE /* bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F752771B3D8AC300CEE7BE /* bottom.png */; };
+		A4F752861B3D8AC300CEE7BE /* line.gif in Resources */ = {isa = PBXBuildFile; fileRef = A4F752781B3D8AC300CEE7BE /* line.gif */; };
+		A4F752871B3D8AC300CEE7BE /* wenjuan.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F752791B3D8AC300CEE7BE /* wenjuan.png */; };
+		A4F752881B3D8AC300CEE7BE /* tizhi.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F7527A1B3D8AC300CEE7BE /* tizhi.png */; };
+		A4F752891B3D8AC300CEE7BE /* shenti.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F7527B1B3D8AC300CEE7BE /* shenti.png */; };
+		A4F7528A1B3D8AC300CEE7BE /* pressecg.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F7527C1B3D8AC300CEE7BE /* pressecg.png */; };
+		A4F7528B1B3D8AC300CEE7BE /* headfunction.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F7527D1B3D8AC300CEE7BE /* headfunction.png */; };
+		A4F7528C1B3D8AC300CEE7BE /* bond.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F7527E1B3D8AC300CEE7BE /* bond.png */; };
+		A4F7528D1B3D8AC300CEE7BE /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F7527F1B3D8AC300CEE7BE /* eye.png */; };
+		A4F7528E1B3D8AC300CEE7BE /* blood.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F752801B3D8AC300CEE7BE /* blood.png */; };
+		A4F7528F1B3D8AC300CEE7BE /* shenghua.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F752811B3D8AC300CEE7BE /* shenghua.png */; };
+		A4F752901B3D8AC300CEE7BE /* 项目详情.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F752821B3D8AC300CEE7BE /* 项目详情.png */; };
+		A4F752911B3D8AC300CEE7BE /* point.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F752831B3D8AC300CEE7BE /* point.png */; };
+		A4F752F91B3FCF0500CEE7BE /* PersonLoginInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F752F81B3FCF0500CEE7BE /* PersonLoginInfoVC.m */; };
 		EF2880531B3A51D200E073A7 /* GardiacAndPulmonary.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2880521B3A51D200E073A7 /* GardiacAndPulmonary.m */; };
 		EF28805D1B3A714200E073A7 /* PulmonaryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF28805B1B3A714200E073A7 /* PulmonaryInfoCell.m */; };
 		EF28805E1B3A714200E073A7 /* PulmonaryInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF28805C1B3A714200E073A7 /* PulmonaryInfoCell.xib */; };
@@ -291,6 +306,22 @@
 		A4F7525F1B3C53BD00CEE7BE /* ButtonCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCollectionCell.h; sourceTree = "<group>"; };
 		A4F752601B3C53BD00CEE7BE /* ButtonCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCollectionCell.m; sourceTree = "<group>"; };
 		A4F752611B3C53BD00CEE7BE /* ButtonCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCollectionCell.xib; sourceTree = "<group>"; };
+		A4F752761B3D8AC300CEE7BE /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
+		A4F752771B3D8AC300CEE7BE /* bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottom.png; sourceTree = "<group>"; };
+		A4F752781B3D8AC300CEE7BE /* line.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = line.gif; sourceTree = "<group>"; };
+		A4F752791B3D8AC300CEE7BE /* wenjuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wenjuan.png; sourceTree = "<group>"; };
+		A4F7527A1B3D8AC300CEE7BE /* tizhi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tizhi.png; sourceTree = "<group>"; };
+		A4F7527B1B3D8AC300CEE7BE /* shenti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shenti.png; sourceTree = "<group>"; };
+		A4F7527C1B3D8AC300CEE7BE /* pressecg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pressecg.png; sourceTree = "<group>"; };
+		A4F7527D1B3D8AC300CEE7BE /* headfunction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headfunction.png; sourceTree = "<group>"; };
+		A4F7527E1B3D8AC300CEE7BE /* bond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bond.png; sourceTree = "<group>"; };
+		A4F7527F1B3D8AC300CEE7BE /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye.png; sourceTree = "<group>"; };
+		A4F752801B3D8AC300CEE7BE /* blood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blood.png; sourceTree = "<group>"; };
+		A4F752811B3D8AC300CEE7BE /* shenghua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shenghua.png; sourceTree = "<group>"; };
+		A4F752821B3D8AC300CEE7BE /* 项目详情.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "项目详情.png"; sourceTree = "<group>"; };
+		A4F752831B3D8AC300CEE7BE /* point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point.png; sourceTree = "<group>"; };
+		A4F752F71B3FCF0500CEE7BE /* PersonLoginInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonLoginInfoVC.h; sourceTree = "<group>"; };
+		A4F752F81B3FCF0500CEE7BE /* PersonLoginInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonLoginInfoVC.m; sourceTree = "<group>"; };
 		EF2880511B3A51D200E073A7 /* GardiacAndPulmonary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GardiacAndPulmonary.h; sourceTree = "<group>"; };
 		EF2880521B3A51D200E073A7 /* GardiacAndPulmonary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GardiacAndPulmonary.m; sourceTree = "<group>"; };
 		EF28805A1B3A714200E073A7 /* PulmonaryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulmonaryInfoCell.h; sourceTree = "<group>"; };
@@ -566,6 +597,7 @@
 		A4ACAFE31B2D6D5F0037E00C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A4F752751B3D8AA100CEE7BE /* Head */,
 				A4F752391B3C536100CEE7BE /* Button */,
 				A4ACB0131B2EA44C0037E00C /* Nav */,
 				A4ACAFE41B2D6D690037E00C /* Login */,
@@ -680,6 +712,7 @@
 		A4ACB00F1B2EA3BC0037E00C /* LoginVC */ = {
 			isa = PBXGroup;
 			children = (
+				A4F752F61B3FCEDB00CEE7BE /* PersonInfo */,
 				A4ACB0101B2EA3D30037E00C /* LoginVC.h */,
 				A4ACB0111B2EA3D30037E00C /* LoginVC.m */,
 			);
@@ -963,6 +996,36 @@
 			name = ButtonCollectionCell;
 			sourceTree = "<group>";
 		};
+		A4F752751B3D8AA100CEE7BE /* Head */ = {
+			isa = PBXGroup;
+			children = (
+				A4F752761B3D8AC300CEE7BE /* top.png */,
+				A4F752771B3D8AC300CEE7BE /* bottom.png */,
+				A4F752781B3D8AC300CEE7BE /* line.gif */,
+				A4F752791B3D8AC300CEE7BE /* wenjuan.png */,
+				A4F7527A1B3D8AC300CEE7BE /* tizhi.png */,
+				A4F7527B1B3D8AC300CEE7BE /* shenti.png */,
+				A4F7527C1B3D8AC300CEE7BE /* pressecg.png */,
+				A4F7527D1B3D8AC300CEE7BE /* headfunction.png */,
+				A4F7527E1B3D8AC300CEE7BE /* bond.png */,
+				A4F7527F1B3D8AC300CEE7BE /* eye.png */,
+				A4F752801B3D8AC300CEE7BE /* blood.png */,
+				A4F752811B3D8AC300CEE7BE /* shenghua.png */,
+				A4F752821B3D8AC300CEE7BE /* 项目详情.png */,
+				A4F752831B3D8AC300CEE7BE /* point.png */,
+			);
+			name = Head;
+			sourceTree = "<group>";
+		};
+		A4F752F61B3FCEDB00CEE7BE /* PersonInfo */ = {
+			isa = PBXGroup;
+			children = (
+				A4F752F71B3FCF0500CEE7BE /* PersonLoginInfoVC.h */,
+				A4F752F81B3FCF0500CEE7BE /* PersonLoginInfoVC.m */,
+			);
+			name = PersonInfo;
+			sourceTree = "<group>";
+		};
 		EF2880501B3A518B00E073A7 /* GardiacAndPulmonary */ = {
 			isa = PBXGroup;
 			children = (
@@ -1149,23 +1212,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F752911B3D8AC300CEE7BE /* point.png in Resources */,
 				A4F7525B1B3C537300CEE7BE /* 8.png in Resources */,
 				A4F752631B3C53BD00CEE7BE /* ButtonCollectionCell.xib in Resources */,
 				A4F7524C1B3C537300CEE7BE /* 1_no.png in Resources */,
 				A4F7525C1B3C537300CEE7BE /* 9_no.png in Resources */,
 				A4F752561B3C537300CEE7BE /* 6_no.png in Resources */,
+				A4F752841B3D8AC300CEE7BE /* top.png in Resources */,
+				A4F752891B3D8AC300CEE7BE /* shenti.png in Resources */,
 				A4F752141B39BC0E00CEE7BE /* EcgBottomCell.xib in Resources */,
 				A4ACAF931B2D50670037E00C /* Images.xcassets in Resources */,
 				A4F752531B3C537300CEE7BE /* 4.png in Resources */,
+				A4F752871B3D8AC300CEE7BE /* wenjuan.png in Resources */,
 				A4F752521B3C537300CEE7BE /* 4_no.png in Resources */,
 				A4F664D21B300523006B2BC0 /* LifeWayInfoCell.xib in Resources */,
 				A4F752551B3C537300CEE7BE /* 5.png in Resources */,
 				A4ACAFED1B2D7CA60037E00C /* self.png in Resources */,
 				A4F752571B3C537300CEE7BE /* 6.png in Resources */,
 				EF28805E1B3A714200E073A7 /* PulmonaryInfoCell.xib in Resources */,
+				A4F752851B3D8AC300CEE7BE /* bottom.png in Resources */,
+				A4F7528E1B3D8AC300CEE7BE /* blood.png in Resources */,
 				A4ACB0151B2EA4670037E00C /* back.png in Resources */,
 				A4F752581B3C537300CEE7BE /* 7_no.png in Resources */,
+				A4F752861B3D8AC300CEE7BE /* line.gif in Resources */,
+				A4F7528B1B3D8AC300CEE7BE /* headfunction.png in Resources */,
+				A4F7528A1B3D8AC300CEE7BE /* pressecg.png in Resources */,
 				EF583E211B37A9A800450E7A /* SecondCell.xib in Resources */,
+				A4F752901B3D8AC300CEE7BE /* 项目详情.png in Resources */,
 				A4F7524D1B3C537300CEE7BE /* 1.png in Resources */,
 				A4F7525A1B3C537300CEE7BE /* 8_no.png in Resources */,
 				A4F7524F1B3C537300CEE7BE /* 2.png in Resources */,
@@ -1177,6 +1250,8 @@
 				A4F752501B3C537300CEE7BE /* 3_no.png in Resources */,
 				A4F7522E1B3AF37F00CEE7BE /* EyeGenerCheckCell.xib in Resources */,
 				A4F752591B3C537300CEE7BE /* 7.png in Resources */,
+				A4F7528F1B3D8AC300CEE7BE /* shenghua.png in Resources */,
+				A4F7528D1B3D8AC300CEE7BE /* eye.png in Resources */,
 				A4ACAFCB1B2D51510037E00C /* SVProgressHUD.bundle in Resources */,
 				A4ACAFEB1B2D7C5A0037E00C /* searchbg.jpg in Resources */,
 				EF7B96A61B36B802009CF4DF /* ThirdInfoCell.xib in Resources */,
@@ -1184,6 +1259,8 @@
 				EF583E271B37A9C600450E7A /* FirstCell.xib in Resources */,
 				A4F7524E1B3C537300CEE7BE /* 2_no.png in Resources */,
 				EF7B96AC1B36B836009CF4DF /* FourthInfoCell.xib in Resources */,
+				A4F7528C1B3D8AC300CEE7BE /* bond.png in Resources */,
+				A4F752881B3D8AC300CEE7BE /* tizhi.png in Resources */,
 				A4F7520A1B38508700CEE7BE /* BloodPressCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1212,6 +1289,7 @@
 				EF2880711B3ABC1000E073A7 /* RoutineBloodAndBloodModel.m in Sources */,
 				A46068A51B2F22D500DBF04E /* BaseInfoCell.m in Sources */,
 				EF7B96A51B36B802009CF4DF /* ThirdInfoCell.m in Sources */,
+				A4F752F91B3FCF0500CEE7BE /* PersonLoginInfoVC.m in Sources */,
 				A4F751B31B37F11200CEE7BE /* PersonInfoModel.m in Sources */,
 				A460688D1B2F04F100DBF04E /* LeftMenuVC.m in Sources */,
 				A4F7521C1B3AE46A00CEE7BE /* BiochemistryAndImmunityVC.m in Sources */,

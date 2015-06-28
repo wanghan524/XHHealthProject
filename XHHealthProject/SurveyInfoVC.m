@@ -44,6 +44,8 @@
 @property (nonatomic, strong) NSMutableArray *liftDataArray;
 @property (nonatomic, strong) NSMutableArray *diseaseDataArray;
 
+@property(nonatomic,strong)NSMutableArray *headImgMuArr;
+
 @property(nonatomic,strong)MBProgressHUD *hud;
 
 @end
@@ -87,6 +89,11 @@
     if (self.fourthSectionArray == nil) {
         self.fourthSectionArray = [[NSMutableArray alloc] init];
     }
+    if(self.headImgMuArr == nil)
+    {
+        self.headImgMuArr = [[NSMutableArray alloc]initWithCapacity:0];
+    }
+    
     
     
     NSArray *firstOrderArray = @[@{@"Name":@"姓名"},@{@"Sex":@"性别"},@{@"Race":@"民族"},@{@"Birthday":@"出生日期(阳历)"},@{@"Age":@"实足年龄(岁)"},@{@"Birplace":@"出生地"},@{@"NowPlace":@"现住地"},@{@"Call":@"联系电话"},@{@"IdNumber":@"身份证号码"},@{@"Edu":@"文化程度"},@{@"Elevelm":@"个人收人状况"},@{@"Marital":@"婚姻状况"},@{@"Occupation":@"职业"},@{@"Felevely":@"家庭年收入"},@{@"Fnumber":@"--"},@{@"Menophaniaage":@"初潮年龄(岁)"},@{@"Regular":@"月经规律"},@{@"Menopayage":@"绝经年龄(岁)"}];
@@ -108,7 +115,7 @@
     self.fourthSectionArray = [NSMutableArray arrayWithArray:fourthOrderArray];
     
     
-    self.sectionTitleArray = [NSMutableArray arrayWithObjects:@"基本信息",@"体格检查",@"疾病状况数据",@"生活方式", nil];
+    self.sectionTitleArray = [NSMutableArray arrayWithObjects:@"基本信息",@"体格检查",@"疾病状况",@"生活方式", nil];
     
     [self bulidHomePageNav];
     [self bulidTable];
@@ -127,6 +134,12 @@
     self.infoTableView.dataSource = self;
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.infoTableView];
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 36)];
+    imageView.image = [UIImage imageNamed:@"wenjuan"];
+    self.infoTableView.tableHeaderView = imageView;
+    
+    
 }
 
 
@@ -152,20 +165,120 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIButton *clickButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    clickButton.frame = CGRectMake(0, 0, ScreenWidth, 30);
-    clickButton.tag = 10 + section;
     
-    [clickButton setTitle:[self.sectionTitleArray objectAtIndex:section] forState:UIControlStateNormal];
-    [clickButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    clickButton.titleLabel.textAlignment = NSTextAlignmentLeft;
-    //clickButton.titleEdgeInsets = UIEdgeInsetsZero;
-    clickButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    clickButton.contentEdgeInsets = UIEdgeInsetsMake(0,10, 0, 0);
+    
+    UIView *headViewT = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 56)];
+    headViewT.backgroundColor = [UIColor whiteColor];
+
+    
+    
+    UIImageView *pointImgView  = [[UIImageView alloc]initWithFrame:CGRectMake(10, (56-18)/2, 18, 18)];
+    pointImgView.image = [UIImage imageNamed:@"point"];
+    [headViewT addSubview:pointImgView];
+    
+    UILabel *nameLab = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(pointImgView.frame)+5, (56-18)/2, 180, 18)];
+    nameLab.text = [self.sectionTitleArray objectAtIndex:section];
+    nameLab.backgroundColor = [UIColor clearColor];
+    nameLab.textAlignment = NSTextAlignmentLeft;
+    [headViewT addSubview:nameLab];
+    
+    UIImageView *line = [[UIImageView alloc]initWithFrame:CGRectMake(0, 46, ScreenWidth, 10)];
+    line.image = [UIImage imageNamed:@"line.gif"];
+    [headViewT addSubview:line];
+    
+    UIImageView *indicatorImgView = [[UIImageView alloc]initWithFrame:CGRectMake(ScreenWidth - 16 - 20, (56-36)/2, 16, 36)];
+    
+    
+    indicatorImgView.image = [self selectedWithSection:section];
+    indicatorImgView.tag = 100 + section;
+    [headViewT addSubview:indicatorImgView];
+    
+    
+    UIButton *clickButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    clickButton.frame = CGRectMake(0, 0, ScreenWidth, 36);
+    clickButton.tag = 10 + section;
+    clickButton.backgroundColor = [UIColor clearColor];
     
     [clickButton addTarget:self action:@selector(clickButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [headViewT addSubview:clickButton];
     
-    return clickButton;
+    return headViewT;
+}
+
+
+
+-(void)setImgWithTag:(NSUInteger)tag andIsSelected:(BOOL)selected
+{
+    UIImageView *tmpImgView = (UIImageView*)[self.view viewWithTag:tag];
+    if(selected)
+    {
+        tmpImgView.image = [UIImage imageNamed:@"top"];
+    }
+    else
+    {
+        tmpImgView.image = [UIImage imageNamed:@"bottom"];
+    }
+}
+
+-(UIImage*)selectedWithSection:(NSUInteger)section
+{
+    UIImage *img = nil;
+    switch (section) {
+        case 0:
+        {
+            if(firstSecondFlag)
+            {
+                img = [UIImage imageNamed:@"top"];
+            }
+            else
+            {
+                img = [UIImage imageNamed:@"bottom"];
+            }
+            break;
+        }
+        case 1:
+        {
+            if(secondSectionFlag)
+            {
+                img = [UIImage imageNamed:@"top"];
+            }
+            else
+            {
+                img = [UIImage imageNamed:@"bottom"];
+            }
+            break;
+
+        }
+        case 2:
+        {
+            if(thirdSectionFlag)
+            {
+                img = [UIImage imageNamed:@"top"];
+            }
+            else
+            {
+                img = [UIImage imageNamed:@"bottom"];
+            }
+            break;
+
+        }
+        case 3:
+        {
+            if(fourthSectionFlag)
+            {
+                img = [UIImage imageNamed:@"top"];
+            }
+            else
+            {
+                img = [UIImage imageNamed:@"bottom"];
+            }
+            break;
+
+        }
+        default:
+            break;
+    }
+    return img;
 }
 
 
@@ -173,17 +286,21 @@
     
     if (bpt.tag == 10) {
         firstSecondFlag = !firstSecondFlag;
+
         
         
     }
     else if (bpt.tag == 11){
         secondSectionFlag = !secondSectionFlag;
+        
     }
     else if (bpt.tag == 12){
         thirdSectionFlag = !thirdSectionFlag;
+        
     }
     else{
         fourthSectionFlag = !fourthSectionFlag;
+        
     }
     
     [self.infoTableView reloadData];
@@ -769,7 +886,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30;
+    return 56;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{

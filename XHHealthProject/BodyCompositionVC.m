@@ -25,6 +25,9 @@
 
 
 @implementation BodyCompositionVC
+{
+    BOOL firstSecondFlag;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +36,42 @@
     [self bulidImgView];
     [self startRequest];
 
+}
+
+
+
+-(UIImage*)selectedWithSection:(NSUInteger)section
+{
+    UIImage *img = nil;
+    switch (section) {
+        case 0:
+        {
+            if(firstSecondFlag)
+            {
+                img = [UIImage imageNamed:@"top"];
+            }
+            else
+            {
+                img = [UIImage imageNamed:@"bottom"];
+            }
+            break;
+        }
+        default:
+            break;
+    }
+    return img;
+}
+
+
+- (void)clickButtonClick:(UIButton *)bpt{
+    
+    if (bpt.tag == 10) {
+        firstSecondFlag = !firstSecondFlag;
+        UIImageView *imgT = (UIImageView *)[self.view viewWithTag:100];
+        imgT.image = [self selectedWithSection:0];
+    }
+
+    
 }
 
 
@@ -72,17 +111,50 @@
 
 -(void)bulidTopLabel
 {
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, CGRectGetMaxY(self.navView.frame), ScreenWidth, 30) ;
-    [btn setTitle:@"身体成分" forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:12];
-    btn.backgroundColor = [UIColor whiteColor];
-    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-   
-    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    btn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
     
-    [self.view addSubview:btn];
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 44+NAVIGATIONHEIGHT, ScreenWidth, 36)];
+    imageView.image = [UIImage imageNamed:@"shenti"];
+    [self.view addSubview:imageView];
+
+    
+    
+    
+    
+    UIView *headViewT = [[UIView alloc]initWithFrame:CGRectMake(0,CGRectGetMaxY(imageView.frame), ScreenWidth, 56)];
+    headViewT.backgroundColor = [UIColor whiteColor];
+    
+    firstSecondFlag = YES;
+    
+    UIImageView *pointImgView  = [[UIImageView alloc]initWithFrame:CGRectMake(10, (56-18)/2, 18, 18)];
+    pointImgView.image = [UIImage imageNamed:@"point"];
+    [headViewT addSubview:pointImgView];
+    
+    UILabel *nameLab = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(pointImgView.frame)+5, (56-18)/2, 180, 18)];
+    nameLab.text = @"身体成分";
+    nameLab.backgroundColor = [UIColor clearColor];
+    nameLab.textAlignment = NSTextAlignmentLeft;
+    [headViewT addSubview:nameLab];
+    
+    UIImageView *line = [[UIImageView alloc]initWithFrame:CGRectMake(0, 46, ScreenWidth, 10)];
+    line.image = [UIImage imageNamed:@"line.gif"];
+    [headViewT addSubview:line];
+    
+    UIImageView *indicatorImgView = [[UIImageView alloc]initWithFrame:CGRectMake(ScreenWidth - 16 - 20, (56-36)/2, 16, 36)];
+    
+    
+    indicatorImgView.image = [self selectedWithSection:0];
+    indicatorImgView.tag = 100;
+    [headViewT addSubview:indicatorImgView];
+    
+    
+    UIButton *clickButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    clickButton.frame = CGRectMake(0, 0, ScreenWidth, 36);
+    clickButton.tag = 10;
+    clickButton.backgroundColor = [UIColor clearColor];
+    
+    [clickButton addTarget:self action:@selector(clickButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [headViewT addSubview:clickButton];
+    [self.view addSubview:headViewT];
 }
 
 

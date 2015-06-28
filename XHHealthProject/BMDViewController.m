@@ -72,6 +72,11 @@
     self.infoTableView.dataSource = self;
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.infoTableView];
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 36)];
+    imageView.image = [UIImage imageNamed:@"bond"];
+    self.infoTableView.tableHeaderView = imageView;
+
 }
 -(void)bulidHomePageNav
 {
@@ -97,9 +102,31 @@
 
 -(void)loadHeadArr
 {
+    firstSecondFlag = YES;
     
     [self.headMuArr addObject:@"骨密度"];
     
+}
+-(UIImage*)selectedWithSection:(NSUInteger)section
+{
+    UIImage *img = nil;
+    switch (section) {
+        case 0:
+        {
+            if(firstSecondFlag)
+            {
+                img = [UIImage imageNamed:@"top"];
+            }
+            else
+            {
+                img = [UIImage imageNamed:@"bottom"];
+            }
+            break;
+        }
+        default:
+            break;
+    }
+    return img;
 }
 
 - (void)requestBMDInfoData{
@@ -221,7 +248,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30;
+    return 56;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -229,20 +256,42 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIButton *clickButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    clickButton.frame = CGRectMake(0, 0, ScreenWidth, 30);
-    clickButton.tag = 10 + section;
+    UIView *headViewT = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 56)];
+    headViewT.backgroundColor = [UIColor whiteColor];
     
-    [clickButton setTitle:[self.headMuArr objectAtIndex:section] forState:UIControlStateNormal];
-    [clickButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    clickButton.titleLabel.textAlignment = NSTextAlignmentLeft;
-    //clickButton.titleEdgeInsets = UIEdgeInsetsZero;
-    clickButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    clickButton.contentEdgeInsets = UIEdgeInsetsMake(0,10, 0, 0);
+    
+    
+    UIImageView *pointImgView  = [[UIImageView alloc]initWithFrame:CGRectMake(10, (56-18)/2, 18, 18)];
+    pointImgView.image = [UIImage imageNamed:@"point"];
+    [headViewT addSubview:pointImgView];
+    
+    UILabel *nameLab = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(pointImgView.frame)+5, (56-18)/2, 180, 18)];
+    nameLab.text = [self.headMuArr objectAtIndex:section];
+    nameLab.backgroundColor = [UIColor clearColor];
+    nameLab.textAlignment = NSTextAlignmentLeft;
+    [headViewT addSubview:nameLab];
+    
+    UIImageView *line = [[UIImageView alloc]initWithFrame:CGRectMake(0, 46, ScreenWidth, 10)];
+    line.image = [UIImage imageNamed:@"line.gif"];
+    [headViewT addSubview:line];
+    
+    UIImageView *indicatorImgView = [[UIImageView alloc]initWithFrame:CGRectMake(ScreenWidth - 16 - 20, (56-36)/2, 16, 36)];
+    
+    
+    indicatorImgView.image = [self selectedWithSection:section];
+    indicatorImgView.tag = 100 + section;
+    [headViewT addSubview:indicatorImgView];
+    
+    
+    UIButton *clickButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    clickButton.frame = CGRectMake(0, 0, ScreenWidth, 36);
+    clickButton.tag = 10 + section;
+    clickButton.backgroundColor = [UIColor clearColor];
     
     [clickButton addTarget:self action:@selector(clickButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [headViewT addSubview:clickButton];
     
-    return clickButton;
+    return headViewT;
 }
 
 

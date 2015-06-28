@@ -23,6 +23,9 @@
 @end
 
 @implementation BodyCheckVC
+{
+    BOOL firstSecondFlag;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,6 +73,14 @@
     self.infoTableView.dataSource = self;
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.infoTableView];
+    
+    firstSecondFlag = YES;
+    
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 36)];
+    imageView.image = [UIImage imageNamed:@"tizhi"];
+    self.infoTableView.tableHeaderView = imageView;
+
 }
 
 
@@ -84,30 +95,97 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.orderMuArr.count;
+    if (section == 0) {
+        if (firstSecondFlag) {
+            return self.orderMuArr.count;
+        }else{
+            return 0;
+        }
+        
+    }
+    return 0;
+
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"FitNessView"];
-    if(!headView)
-    {
-        headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 30)];
+    UIView *headViewT = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 56)];
+    headViewT.backgroundColor = [UIColor whiteColor];
+    
+    
+    
+    UIImageView *pointImgView  = [[UIImageView alloc]initWithFrame:CGRectMake(10, (56-18)/2, 18, 18)];
+    pointImgView.image = [UIImage imageNamed:@"point"];
+    [headViewT addSubview:pointImgView];
+    
+    UILabel *nameLab = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(pointImgView.frame)+5, (56-18)/2, 180, 18)];
+    nameLab.text = @"体质检查";
+    nameLab.backgroundColor = [UIColor clearColor];
+    nameLab.textAlignment = NSTextAlignmentLeft;
+    [headViewT addSubview:nameLab];
+    
+    UIImageView *line = [[UIImageView alloc]initWithFrame:CGRectMake(0, 46, ScreenWidth, 10)];
+    line.image = [UIImage imageNamed:@"line.gif"];
+    [headViewT addSubview:line];
+    
+    UIImageView *indicatorImgView = [[UIImageView alloc]initWithFrame:CGRectMake(ScreenWidth - 16 - 20, (56-36)/2, 16, 36)];
+    
+    
+    indicatorImgView.image = [self selectedWithSection:section];
+    indicatorImgView.tag = 100 + section;
+    [headViewT addSubview:indicatorImgView];
+    
+    
+    UIButton *clickButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    clickButton.frame = CGRectMake(0, 0, ScreenWidth, 36);
+    clickButton.tag = 10 + section;
+    clickButton.backgroundColor = [UIColor clearColor];
+    
+    [clickButton addTarget:self action:@selector(clickButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [headViewT addSubview:clickButton];
+    return headViewT;
+}
+
+-(UIImage*)selectedWithSection:(NSUInteger)section
+{
+    UIImage *img = nil;
+    switch (section) {
+        case 0:
+        {
+            if(firstSecondFlag)
+            {
+                img = [UIImage imageNamed:@"top"];
+            }
+            else
+            {
+                img = [UIImage imageNamed:@"bottom"];
+            }
+            break;
+        }
+            default:
+            break;
     }
-    if(section == 0)
-    {
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 30)];
-        label.text = @"体质检查";
-        label.font = [UIFont systemFontOfSize:14];
-        [headView addSubview:label];
-    }
-    return headView;
+    return img;
 }
 
 
+- (void)clickButtonClick:(UIButton *)bpt{
+    
+    if (bpt.tag == 10) {
+        firstSecondFlag = !firstSecondFlag;
+        
+        
+        
+    }
+    [self.infoTableView reloadData];
+    //[self requestDataWithIndex:bpt.tag];
+    NSLog(@"tag : %ld",bpt.tag);
+    
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30.f;
+    return 56.f;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
