@@ -12,6 +12,7 @@
 #import "WSRequestManager.h"
 #import "MBProgressHUD.h"
 
+#import "EditPassVC.h"
 
 #import "HeaderImageCell.h"
 #import "PersonOtherInfoCell.h"
@@ -57,7 +58,7 @@
 
 -(void)bulidTable
 {
-    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64 - 40) style:UITableViewStyleGrouped];
+    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
@@ -70,7 +71,7 @@
     [bottomButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     bottomButton.backgroundColor = [UIColor grayColor];
     [bottomButton addTarget:self action:@selector(bottomButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:bottomButton];
+    self.infoTableView.tableFooterView = bottomButton;
     
     
 }
@@ -78,6 +79,16 @@
 - (void)bottomButtonClick{
     
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 3)
+    {
+        EditPassVC *vc = [[EditPassVC alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 4;
@@ -140,6 +151,7 @@
         }
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         cell.headerNameLabel.text = [[infoDic allKeys] objectAtIndex:indexPath.row];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     else if (indexPath.section == 3){
@@ -153,7 +165,7 @@
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
         cell.textLabel.text = [[infoDic allKeys] objectAtIndex:0];
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     
@@ -171,7 +183,7 @@
         if (![[infoDic objectForKey:[[infoDic allKeys] objectAtIndex:0]] isEqualToString:@""]) {
             cell.right_middleLabel.text = [personSingleTon valueForKey:[infoDic objectForKey:[[infoDic allKeys] objectAtIndex:0]]];
         }
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
 }

@@ -54,7 +54,7 @@
     [self addSubview:self.card];
     
     
-    self.indicatorImgView = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.card.frame)+5, CGRectGetMinY(self.name.frame)+10, 74/2, 20)];
+    self.indicatorImgView = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.card.frame)+5, CGRectGetMinY(self.name.frame)+15, 74/2, 20)];
     self.indicatorImgView.image = [UIImage imageNamed:@"more" ];
     [self addSubview:self.indicatorImgView];
 

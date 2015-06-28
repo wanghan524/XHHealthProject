@@ -119,8 +119,9 @@
 		A4F753011B3FE01000CEE7BE /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F753001B3FE01000CEE7BE /* HeadView.m */; };
 		A4F753031B3FE37A00CEE7BE /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F753021B3FE37A00CEE7BE /* more.png */; };
 		A4F753051B3FE7C600CEE7BE /* nologin.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F753041B3FE7C600CEE7BE /* nologin.png */; };
-		A4F753091B3FEC7A00CEE7BE /* SelfCheckVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F753081B3FEC7A00CEE7BE /* SelfCheckVC.m */; };
 		A4F7530D1B40332400CEE7BE /* ListButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F7530C1B40332400CEE7BE /* ListButton.m */; };
+		A4F753111B404C8400CEE7BE /* SelfCheckVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F753101B404C8400CEE7BE /* SelfCheckVC.m */; };
+		A4F753151B404F5F00CEE7BE /* EditPassVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F753141B404F5F00CEE7BE /* EditPassVC.m */; };
 		EF2880531B3A51D200E073A7 /* GardiacAndPulmonary.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2880521B3A51D200E073A7 /* GardiacAndPulmonary.m */; };
 		EF28805D1B3A714200E073A7 /* PulmonaryInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF28805B1B3A714200E073A7 /* PulmonaryInfoCell.m */; };
 		EF28805E1B3A714200E073A7 /* PulmonaryInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF28805C1B3A714200E073A7 /* PulmonaryInfoCell.xib */; };
@@ -340,10 +341,12 @@
 		A4F753001B3FE01000CEE7BE /* HeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadView.m; sourceTree = "<group>"; };
 		A4F753021B3FE37A00CEE7BE /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
 		A4F753041B3FE7C600CEE7BE /* nologin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nologin.png; sourceTree = "<group>"; };
-		A4F753071B3FEC7A00CEE7BE /* SelfCheckVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfCheckVC.h; sourceTree = "<group>"; };
-		A4F753081B3FEC7A00CEE7BE /* SelfCheckVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfCheckVC.m; sourceTree = "<group>"; };
 		A4F7530B1B40332400CEE7BE /* ListButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListButton.h; sourceTree = "<group>"; };
 		A4F7530C1B40332400CEE7BE /* ListButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListButton.m; sourceTree = "<group>"; };
+		A4F7530F1B404C8400CEE7BE /* SelfCheckVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfCheckVC.h; sourceTree = "<group>"; };
+		A4F753101B404C8400CEE7BE /* SelfCheckVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfCheckVC.m; sourceTree = "<group>"; };
+		A4F753131B404F5F00CEE7BE /* EditPassVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPassVC.h; sourceTree = "<group>"; };
+		A4F753141B404F5F00CEE7BE /* EditPassVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPassVC.m; sourceTree = "<group>"; };
 		EF2880511B3A51D200E073A7 /* GardiacAndPulmonary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GardiacAndPulmonary.h; sourceTree = "<group>"; };
 		EF2880521B3A51D200E073A7 /* GardiacAndPulmonary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GardiacAndPulmonary.m; sourceTree = "<group>"; };
 		EF28805A1B3A714200E073A7 /* PulmonaryInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulmonaryInfoCell.h; sourceTree = "<group>"; };
@@ -614,10 +617,9 @@
 		A4ACAFDB1B2D68240037E00C /* VC */ = {
 			isa = PBXGroup;
 			children = (
-
-
+				A4F753121B404F4700CEE7BE /* EditPassVC */,
+				A4F7530E1B404C6900CEE7BE /* SelfCheckVC */,
 				EF574DE11B3FE18300A63BC3 /* PersonInfoVC */,
-
 				A4F752351B3B05A600CEE7BE /* EyeFundusExamVC */,
 				A4F752191B3AE45800CEE7BE /* BiochemistryAndImmunityVC */,
 				EF2880721B3ABEF100E073A7 /* RoutineBloodAndBloodVC */,
@@ -1088,15 +1090,6 @@
 			name = HeadView;
 			sourceTree = "<group>";
 		};
-		A4F753061B3FEC6000CEE7BE /* SelfCheck */ = {
-			isa = PBXGroup;
-			children = (
-				A4F753071B3FEC7A00CEE7BE /* SelfCheckVC.h */,
-				A4F753081B3FEC7A00CEE7BE /* SelfCheckVC.m */,
-			);
-			name = SelfCheck;
-			sourceTree = "<group>";
-		};
 		A4F7530A1B3FF08000CEE7BE /* ListButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1104,6 +1097,24 @@
 				A4F7530C1B40332400CEE7BE /* ListButton.m */,
 			);
 			name = ListButton;
+			sourceTree = "<group>";
+		};
+		A4F7530E1B404C6900CEE7BE /* SelfCheckVC */ = {
+			isa = PBXGroup;
+			children = (
+				A4F7530F1B404C8400CEE7BE /* SelfCheckVC.h */,
+				A4F753101B404C8400CEE7BE /* SelfCheckVC.m */,
+			);
+			name = SelfCheckVC;
+			sourceTree = "<group>";
+		};
+		A4F753121B404F4700CEE7BE /* EditPassVC */ = {
+			isa = PBXGroup;
+			children = (
+				A4F753131B404F5F00CEE7BE /* EditPassVC.h */,
+				A4F753141B404F5F00CEE7BE /* EditPassVC.m */,
+			);
+			name = EditPassVC;
 			sourceTree = "<group>";
 		};
 		EF2880501B3A518B00E073A7 /* GardiacAndPulmonary */ = {
@@ -1386,6 +1397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A46068891B2F04F100DBF04E /* MenuCell.m in Sources */,
+				A4F753151B404F5F00CEE7BE /* EditPassVC.m in Sources */,
 				A460688A1B2F04F100DBF04E /* ButtonItem.m in Sources */,
 				EF583E201B37A9A800450E7A /* SecondCell.m in Sources */,
 				A4F7530D1B40332400CEE7BE /* ListButton.m in Sources */,
@@ -1426,7 +1438,6 @@
 				A4F752621B3C53BD00CEE7BE /* ButtonCollectionCell.m in Sources */,
 				A4F751ED1B38272C00CEE7BE /* MKAnnotationView+WebCache.m in Sources */,
 				EF574DDE1B3FDF4300A63BC3 /* PersonInfoSingleTon.m in Sources */,
-				A4F753091B3FEC7A00CEE7BE /* SelfCheckVC.m in Sources */,
 				A4F751F31B38272C00CEE7BE /* SDWebImageDownloaderOperation.m in Sources */,
 				A460689E1B2F220E00DBF04E /* PersonInfoVC.m in Sources */,
 				EF2880651B3A8D6F00E073A7 /* pulmonaryModel.m in Sources */,
@@ -1460,6 +1471,7 @@
 				A46068971B2F04F100DBF04E /* WSRequestManager.m in Sources */,
 				A46068981B2F04F100DBF04E /* WSURLRequest.m in Sources */,
 				A4F751AF1B37DD1800CEE7BE /* BodyCheckVC.m in Sources */,
+				A4F753111B404C8400CEE7BE /* SelfCheckVC.m in Sources */,
 				A46068991B2F04F100DBF04E /* AppDelegate.m in Sources */,
 				A4F751C31B37FF7200CEE7BE /* FitNessModel.m in Sources */,
 				A4F753011B3FE01000CEE7BE /* HeadView.m in Sources */,

@@ -40,6 +40,8 @@
     self.head.headImgView.image = [UIImage imageNamed:@"nologin"];
     self.head.name.text = @"请登录";
     self.head.indicatorImgView.image = [UIImage imageNamed:@"more"];
+    CGRect orgin = self.head.name.frame;
+    self.head.name.frame = CGRectMake(orgin.origin.x, orgin.origin.y+10, orgin.size.width, orgin.size.height);
     [self.head.button addTarget:self action:@selector(headButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.head];
     
@@ -47,10 +49,10 @@
 
 - (void)headerImageViewClick{
     PersonInfoViewController *composition = [[PersonInfoViewController alloc]init];
-    
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     [delegate.draw closeDrawerAnimated:NO completion:nil];
-    delegate.draw.centerViewController = composition;
+    delegate.draw.centerViewController = nav;
     //[self presentViewController:composition animated:YES completion:nil];
 }
 

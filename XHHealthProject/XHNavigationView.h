@@ -13,7 +13,8 @@
 
 typedef NS_ENUM(NSInteger, Type_XHNav)
 {
-    Type_LoginNav
+    Type_LoginNav,
+    Type_RightBtn
 };
 
 
@@ -24,6 +25,7 @@ typedef NS_ENUM(NSInteger, Type_XHNav)
 @property (nonatomic,strong) UIButton *btn_login;
 @property (nonatomic,strong) UILabel  *lbl_login;
 @property (nonatomic,strong) UILabel  *lbl_login_middle;
+@property (nonatomic,strong) UIButton *rightBtn;
 
 -(void)layoutXHNavWithType:(Type_XHNav)type;
 

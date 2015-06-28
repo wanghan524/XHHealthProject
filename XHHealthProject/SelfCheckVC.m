@@ -95,6 +95,10 @@
     self.textField = [[UITextField alloc]initWithFrame:CGRectMake(2, CGRectGetMaxY(self.standleLabel.frame)+5, ScreenWidth - 4, 40)];
     self.textField.borderStyle = UITextBorderStyleRoundedRect;
     self.textField.font = [UIFont systemFontOfSize:14];
+    
+    self.textField.layer.masksToBounds = YES;
+    self.textField.layer.cornerRadius = 5.f;
+    
     self.textField.layer.borderColor = [UIColor orangeColor].CGColor;
     self.textField.layer.borderWidth = 1.0f;
     [self.bgView addSubview:self.textField];
