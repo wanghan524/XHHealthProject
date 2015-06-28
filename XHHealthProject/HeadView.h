@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol headerImageClickDelegate <NSObject>
 
+- (void)headerImageViewClick;
+
+@end
 
 @interface HeadView : UIView
 @property(nonatomic,strong)UIImageView *headImgView;
@@ -16,6 +20,7 @@
 @property(nonatomic,strong)UILabel *card;
 @property(nonatomic,strong)UIButton *button;
 @property(nonatomic,strong)UIImageView *indicatorImgView;
+@property (nonatomic , weak)id<headerImageClickDelegate>delegate;
 
 
 

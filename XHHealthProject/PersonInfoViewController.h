@@ -7,6 +7,8 @@
 //
 
 #import "BaseVC.h"
+#import "AppDelegate.h"
+#import "HomePageVC.h"
 
 @interface PersonInfoViewController : BaseVC
 

@@ -14,8 +14,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nac-FW-JJy">
-                        <rect key="frame" x="10" y="3" width="140" height="74"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nac-FW-JJy">
+                        <rect key="frame" x="10" y="2" width="140" height="74"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="140" id="UJ4-Am-3aQ"/>
                         </constraints>
@@ -23,8 +23,8 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="head.png" translatesAutoresizingMaskIntoConstraints="NO" id="nms-tX-nDn">
-                        <rect key="frame" x="216" y="11" width="60" height="59"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head.png" translatesAutoresizingMaskIntoConstraints="NO" id="nms-tX-nDn">
+                        <rect key="frame" x="216" y="10" width="60" height="59"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Ptp-Be-f0b"/>
                         </constraints>

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MMDrawerController.h"
+
 #import "HomePageVC.h"
 #import "LeftMenuVC.h"
 
@@ -26,17 +26,16 @@
     
     LeftMenuVC *menu = [[LeftMenuVC alloc]init];
     
-    
-    MMDrawerController *draw = [[MMDrawerController alloc]initWithCenterViewController:nav leftDrawerViewController:menu];
-    [draw setMaximumLeftDrawerWidth:200.f];
-    [draw setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [draw setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+      self.draw = [[MMDrawerController alloc]initWithCenterViewController:nav leftDrawerViewController:menu];
+    [self.draw setMaximumLeftDrawerWidth:200.f];
+    [self.draw setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [self.draw setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
     
     
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = draw;
+    self.window.rootViewController = self.draw;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     

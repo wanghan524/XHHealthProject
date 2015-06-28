@@ -57,13 +57,25 @@
 
 -(void)bulidTable
 {
-    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
+    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64 - 40) style:UITableViewStyleGrouped];
+    self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
-    self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.infoTableView];
     
+    UIButton *bottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    bottomButton.frame = CGRectMake(0, self.view.frame.size.height - 40, self.view.frame.size.width, 40);
+    [bottomButton setTitle:@"注销当前用户" forState:UIControlStateNormal];
+    [bottomButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    bottomButton.backgroundColor = [UIColor grayColor];
+    [bottomButton addTarget:self action:@selector(bottomButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:bottomButton];
     
+    
+}
+
+- (void)bottomButtonClick{
     
 }
 
@@ -126,9 +138,25 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HeaderImageCell" owner:self options:nil] lastObject];
         }
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         cell.headerNameLabel.text = [[infoDic allKeys] objectAtIndex:indexPath.row];
         return cell;
     }
+    else if (indexPath.section == 3){
+        static NSString *identifier = @"infoCell";
+        
+        NSDictionary *infoDic = [nowArray objectAtIndex:indexPath.row];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        
+        cell.textLabel.text = [[infoDic allKeys] objectAtIndex:0];
+        
+        return cell;
+    }
+    
     else{
         static NSString *identifier = @"personOtherInfo";
         
@@ -138,14 +166,23 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"PersonOtherInfoCell" owner:self options:nil] lastObject];
         }
-        cell.left_middleLabel.text = [[infoDic allKeys] objectAtIndex:indexPath.row];
-        cell.right_middleLabel.text = [personSingleTon valueForKey:[infoDic objectForKey:[[infoDic allKeys] objectAtIndex:indexPath.row]]];
+        cell.left_middleLabel.text = [[infoDic allKeys] objectAtIndex:0];
+        
+        if (![[infoDic objectForKey:[[infoDic allKeys] objectAtIndex:0]] isEqualToString:@""]) {
+            cell.right_middleLabel.text = [personSingleTon valueForKey:[infoDic objectForKey:[[infoDic allKeys] objectAtIndex:0]]];
+        }
+        
         return cell;
     }
 }
 
 - (void)backButtonClick{
+    HomePageVC *homeVC = [[HomePageVC alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:homeVC];
     
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate.draw closeDrawerAnimated:YES completion:nil];
+    delegate.draw.centerViewController = nav;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

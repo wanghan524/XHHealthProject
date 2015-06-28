@@ -23,7 +23,7 @@
 
 -(void)tapClick:(UITapGestureRecognizer *)tap
 {
-    
+    [self.delegate headerImageViewClick];
 }
 
 

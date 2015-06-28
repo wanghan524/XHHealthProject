@@ -9,7 +9,9 @@
 #import "LeftMenuVC.h"
 #import "MenuCell.h"
 #import "HeadView.h"
-@interface LeftMenuVC ()<UITableViewDataSource,UITableViewDelegate>
+#import "AppDelegate.h"
+#import "PersonInfoViewController.h"
+@interface LeftMenuVC ()<UITableViewDataSource,UITableViewDelegate,headerImageClickDelegate>
 @property(nonatomic,strong)UITableView *menuTableView;
 @property(nonatomic,strong)NSMutableArray *btnNameArray;
 @property(nonatomic,strong)HeadView *head;
@@ -34,6 +36,7 @@
 -(void)buildHeadView
 {
     self.head  = [[HeadView alloc]initWithFrame:CGRectMake(0, 20, 200, 135   )];
+    self.head.delegate = self;
     self.head.headImgView.image = [UIImage imageNamed:@"nologin"];
     self.head.name.text = @"请登录";
     self.head.indicatorImgView.image = [UIImage imageNamed:@"more"];
@@ -42,6 +45,14 @@
     
 }
 
+- (void)headerImageViewClick{
+    PersonInfoViewController *composition = [[PersonInfoViewController alloc]init];
+    
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate.draw closeDrawerAnimated:NO completion:nil];
+    delegate.draw.centerViewController = composition;
+    //[self presentViewController:composition animated:YES completion:nil];
+}
 
 #pragma mark tableviewDelegate
 
