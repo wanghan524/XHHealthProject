@@ -124,6 +124,7 @@
 		EF28806D1B3AA34400E073A7 /* BMDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF28806C1B3AA34400E073A7 /* BMDViewController.m */; };
 		EF2880711B3ABC1000E073A7 /* RoutineBloodAndBloodModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2880701B3ABC1000E073A7 /* RoutineBloodAndBloodModel.m */; };
 		EF2880751B3ABEFF00E073A7 /* RoutineBloodAndBloodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2880741B3ABEFF00E073A7 /* RoutineBloodAndBloodViewController.m */; };
+		EF574DDE1B3FDF4300A63BC3 /* PersonInfoSingleTon.m in Sources */ = {isa = PBXBuildFile; fileRef = EF574DDD1B3FDF4300A63BC3 /* PersonInfoSingleTon.m */; };
 		EF583E201B37A9A800450E7A /* SecondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF583E1E1B37A9A800450E7A /* SecondCell.m */; };
 		EF583E211B37A9A800450E7A /* SecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF583E1F1B37A9A800450E7A /* SecondCell.xib */; };
 		EF583E261B37A9C600450E7A /* FirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF583E241B37A9C600450E7A /* FirstCell.m */; };
@@ -339,6 +340,8 @@
 		EF2880701B3ABC1000E073A7 /* RoutineBloodAndBloodModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutineBloodAndBloodModel.m; sourceTree = "<group>"; };
 		EF2880731B3ABEFF00E073A7 /* RoutineBloodAndBloodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoutineBloodAndBloodViewController.h; sourceTree = "<group>"; };
 		EF2880741B3ABEFF00E073A7 /* RoutineBloodAndBloodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoutineBloodAndBloodViewController.m; sourceTree = "<group>"; };
+		EF574DDC1B3FDF4300A63BC3 /* PersonInfoSingleTon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoSingleTon.h; sourceTree = "<group>"; };
+		EF574DDD1B3FDF4300A63BC3 /* PersonInfoSingleTon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoSingleTon.m; sourceTree = "<group>"; };
 		EF583E1D1B37A9A800450E7A /* SecondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCell.h; sourceTree = "<group>"; };
 		EF583E1E1B37A9A800450E7A /* SecondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCell.m; sourceTree = "<group>"; };
 		EF583E1F1B37A9A800450E7A /* SecondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCell.xib; sourceTree = "<group>"; };
@@ -494,6 +497,8 @@
 				A4ACAFB61B2D513F0037E00C /* WSURLRequest.m */,
 				A4F665181B31CE81006B2BC0 /* XHHealthRequest.h */,
 				A4F665191B31CE81006B2BC0 /* XHHealthRequest.m */,
+				EF574DDC1B3FDF4300A63BC3 /* PersonInfoSingleTon.h */,
+				EF574DDD1B3FDF4300A63BC3 /* PersonInfoSingleTon.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1315,6 +1320,7 @@
 				EF2880621B3A8D5C00E073A7 /* GardiacModel.m in Sources */,
 				A4F752621B3C53BD00CEE7BE /* ButtonCollectionCell.m in Sources */,
 				A4F751ED1B38272C00CEE7BE /* MKAnnotationView+WebCache.m in Sources */,
+				EF574DDE1B3FDF4300A63BC3 /* PersonInfoSingleTon.m in Sources */,
 				A4F751F31B38272C00CEE7BE /* SDWebImageDownloaderOperation.m in Sources */,
 				A460689E1B2F220E00DBF04E /* PersonInfoVC.m in Sources */,
 				EF2880651B3A8D6F00E073A7 /* pulmonaryModel.m in Sources */,
