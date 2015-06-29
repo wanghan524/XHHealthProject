@@ -22,7 +22,12 @@
     self.navView.backgroundColor = NAVColor;
     [self.navView.btn_login setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     [self.navView.btn_login addTarget:self action:@selector(backBtn:) forControlEvents:UIControlEventTouchUpInside];
-    self.navView.lbl_login_middle.text = @"登录";
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    if ([user valueForKey:@"UserName"] != nil) {
+        self.navView.lbl_login.text = [user valueForKey:@"UserName"];
+    }else{
+        self.navView.lbl_login.text = @"登录";
+    }
     [self.view addSubview:self.navView];
 }
 

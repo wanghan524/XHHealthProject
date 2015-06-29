@@ -137,6 +137,7 @@
 -(void)loginClick:(UIButton *)sender
 {
     
+
     
     [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":self.userTxt.text,@"_Pwd":self.passwordTxt.text} withMethodName:ONLOGIN SuccessRequest:^(id data) {
         NSArray *resultArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
@@ -144,6 +145,19 @@
         if([resultArray count] > 0)
         {
             NSDictionary *resultDic = resultArray[0];
+            
+            NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+            [user setObject:[resultDic objectForKey:@"Address"] forKey:@"Address"];
+            [user setObject:[resultDic objectForKey:@"Email"] forKey:@"Email"];
+            [user setObject:[resultDic objectForKey:@"Phone"] forKey:@"Phone"];
+            [user setObject:[resultDic objectForKey:@"Sex"] forKey:@"Sex"];
+            
+            [user setObject:[resultDic objectForKey:@"Success"] forKey:@"Success"];
+            [user setObject:[resultDic objectForKey:@"UserImage"] forKey:@"UserImage"];
+            [user setObject:[resultDic objectForKey:@"UserName"] forKey:@"UserName"];
+            [user setObject:self.userTxt.text forKey:@"IdNumber"];
+            
+            
             [self showErrorHUDWithStr:resultDic[@"ExMessage"]];
         }
 
@@ -170,7 +184,18 @@
 
 -(void)backBtn:(UIButton *)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    if ([self.flagString isEqualToString:@"left"]) {
+        HomePageVC *homeVC = [[HomePageVC alloc]init];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:homeVC];
+        
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        [delegate.draw closeDrawerAnimated:YES completion:nil];
+        delegate.draw.centerViewController = nav;
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

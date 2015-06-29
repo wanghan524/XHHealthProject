@@ -7,7 +7,10 @@
 //
 
 #import "BaseVC.h"
+#import "AppDelegate.h"
+#import "HomePageVC.h"
 
 @interface LoginVC : BaseVC
 
+@property (nonatomic, strong) NSString *flagString;
 @end

@@ -77,7 +77,11 @@
 
 -(void)startRequest
 {
-    [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":CARD} withMethodName:BODYCOM SuccessRequest:^(id data) {
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    
+    NSString *numberString = [user stringForKey:@"IdNumber"];
+    [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":numberString} withMethodName:BODYCOM SuccessRequest:^(id data) {
         NSArray *resultArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
         if([resultArray count] > 0)
@@ -172,7 +176,12 @@
     [self.navView layoutXHNavWithType:Type_LoginNav];
     self.navView.backgroundColor = NAVColor;
     [self.navView.btn_login setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
-    self.navView.lbl_login.text = @"登录";
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    if ([user valueForKey:@"UserName"] != nil) {
+        self.navView.lbl_login.text = [user valueForKey:@"UserName"];
+    }else{
+        self.navView.lbl_login.text = @"登录";
+    }
     self.navView.lbl_login_middle.text = @"协和健康管理";
     //    [self.navView.btn_login addTarget:self action:@selector(loginBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.navView];

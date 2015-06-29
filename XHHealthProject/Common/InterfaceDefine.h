@@ -27,6 +27,9 @@ typedef enum ResponseType
 //用户登录
 #define ONLOGIN @"UserLogin"
 
+//修改密码
+#define CHANGEPASSWORD @"UserPwdChange"
+
 #define DISEASESTATUS @"GetDiseaseStatusByIDNumber"
 
 #define USERINFO @"GetUserInfoByIDNumber"

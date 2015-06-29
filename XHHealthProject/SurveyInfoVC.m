@@ -149,12 +149,20 @@
     [self.navView layoutXHNavWithType:Type_LoginNav];
     self.navView.backgroundColor = NAVColor;
     [self.navView.btn_login setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
-    self.navView.lbl_login.text = @"登录";
+    
     self.navView.lbl_login_middle.text = @"协和健康管理";
     //    [self.navView.btn_login addTarget:self action:@selector(loginBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.navView];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    if ([user valueForKey:@"UserName"] != nil) {
+        self.navView.lbl_login.text = [user valueForKey:@"UserName"];
+    }else{
+        self.navView.lbl_login.text = @"登录";
+    }
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.sectionTitleArray.count;
@@ -325,9 +333,11 @@
 //    else{
 //        medthodString = LIFRSTYLE;
 //    }
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     
+    NSString *numberString = [user stringForKey:@"IdNumber"];
     
-    [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":@"61010319600411241X"} withMethodName:USERINFO SuccessRequest:^(id data) {
+    [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":numberString} withMethodName:USERINFO SuccessRequest:^(id data) {
         NSArray *resultArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
         if([resultArray count] > 0)
@@ -359,7 +369,12 @@
 
 
 - (void)requestBodyData{
-    [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":CARD} withMethodName:PHYSICALEXAM SuccessRequest:^(id data) {
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    
+    NSString *numberString = [user stringForKey:@"IdNumber"];
+    
+    [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":numberString} withMethodName:PHYSICALEXAM SuccessRequest:^(id data) {
         NSArray *resultArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
         if([resultArray count] > 0)

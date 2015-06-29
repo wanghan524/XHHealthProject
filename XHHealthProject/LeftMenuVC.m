@@ -11,6 +11,20 @@
 #import "HeadView.h"
 #import "AppDelegate.h"
 #import "PersonInfoViewController.h"
+
+#import "BodyCheckVC.h"
+#import "BodyCompositionVC.h"
+#import "SurveyInfoVC.h"
+#import "PressAndEcg.h"
+#import "GardiacAndPulmonary.h"
+#import "BMDViewController.h"
+#import "RoutineBloodAndBloodViewController.h"
+#import "BiochemistryAndImmunityVC.h"
+#import "EyeFundusExamVC.h"
+#import "ButtonCollectionCell.h"
+
+
+#import "LoginVC.h"
 @interface LeftMenuVC ()<UITableViewDataSource,UITableViewDelegate,headerImageClickDelegate>
 @property(nonatomic,strong)UITableView *menuTableView;
 @property(nonatomic,strong)NSMutableArray *btnNameArray;
@@ -38,7 +52,10 @@
     self.head  = [[HeadView alloc]initWithFrame:CGRectMake(0, 20, 200, 135   )];
     self.head.delegate = self;
     self.head.headImgView.image = [UIImage imageNamed:@"nologin"];
-    self.head.name.text = @"请登录";
+    
+    
+    
+    //self.head.name.text = @"请登录";
     self.head.indicatorImgView.image = [UIImage imageNamed:@"more"];
     CGRect orgin = self.head.name.frame;
     self.head.name.frame = CGRectMake(orgin.origin.x, orgin.origin.y+10, orgin.size.width, orgin.size.height);
@@ -47,12 +64,39 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    if ([user valueForKey:@"UserName"] != nil) {
+        self.head.name.text = [user valueForKey:@"UserName"];
+    }else{
+        self.head.name.text = @"请登录";
+    }
+}
+
+
 - (void)headerImageViewClick{
-    PersonInfoViewController *composition = [[PersonInfoViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [delegate.draw closeDrawerAnimated:NO completion:nil];
-    delegate.draw.centerViewController = nav;
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    
+    if ([user valueForKey:@"IdNumber"] != nil) {
+        PersonInfoViewController *composition = [[PersonInfoViewController alloc]init];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        [delegate.draw closeDrawerAnimated:NO completion:nil];
+        delegate.draw.centerViewController = nav;
+    }
+    
+    else{
+        LoginVC *vc = [[LoginVC alloc]init];
+        vc.flagString = @"left";
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        [delegate.draw closeDrawerAnimated:NO completion:nil];
+        delegate.draw.centerViewController = nav;
+        
+    }
+    
+    
     //[self presentViewController:composition animated:YES completion:nil];
 }
 
@@ -138,6 +182,7 @@
     self.menuTableView.delegate = self;
     self.menuTableView.dataSource = self;
     self.menuTableView.separatorInset = UIEdgeInsetsZero;
+    self.menuTableView.tableFooterView = [[UIView alloc] init];
 
 
 

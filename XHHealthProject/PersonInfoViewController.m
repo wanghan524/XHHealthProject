@@ -69,6 +69,8 @@
     bottomButton.frame = CGRectMake(0, self.view.frame.size.height - 40, self.view.frame.size.width, 40);
     [bottomButton setTitle:@"注销当前用户" forState:UIControlStateNormal];
     [bottomButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    bottomButton.titleLabel.font = [UIFont systemFontOfSize:15];
     bottomButton.backgroundColor = [UIColor grayColor];
     [bottomButton addTarget:self action:@selector(bottomButtonClick) forControlEvents:UIControlEventTouchUpInside];
     self.infoTableView.tableFooterView = bottomButton;
@@ -77,6 +79,18 @@
 }
 
 - (void)bottomButtonClick{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    
+    [user removeObjectForKey:@"Address"];
+    [user removeObjectForKey:@"Email"];
+    [user removeObjectForKey:@"Phone"];
+    [user removeObjectForKey:@"Sex"];
+    [user removeObjectForKey:@"Success"];
+    [user removeObjectForKey:@"UserImage"];
+    [user removeObjectForKey:@"UserName"];
+    [user removeObjectForKey:@"IdNumber"];
+    
+    [self.infoTableView reloadData];
     
 }
 
@@ -136,7 +150,21 @@
      
      */
     
-    NSArray *infoArray = @[@[@{@"头像":@"userImageString"}],@[@{@"姓名":@"userNameString"},@{@"身份证号码":@"idNumberString"},@{@"性别":@"sexString"}],@[@{@"手机":@"phoneString"},@{@"邮箱":@"emailString"},@{@"地址":@"addressString"}],@[@{@"修改密码":@""}]];
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    /*
+    [user setObject:[resultDic objectForKey:@"Address"] forKey:@"Address"];
+    [user setObject:[resultDic objectForKey:@"Email"] forKey:@"Email"];
+    [user setObject:[resultDic objectForKey:@"Phone"] forKey:@"Phone"];
+    [user setObject:[resultDic objectForKey:@"Sex"] forKey:@"Sex"];
+    
+    [user setObject:[resultDic objectForKey:@"Success"] forKey:@"Success"];
+    [user setObject:[resultDic objectForKey:@"UserImage"] forKey:@"UserImage"];
+    [user setObject:[resultDic objectForKey:@"UserName"] forKey:@"UserName"];
+    [user setObject:self.userTxt.text forKey:@"IdNumber"];
+    */
+    
+    NSArray *infoArray = @[@[@{@"头像":@"UserImage"}],@[@{@"姓名":@"UserName"},@{@"身份证号码":@"IdNumber"},@{@"性别":@"Sex"}],@[@{@"手机":@"Phone"},@{@"邮箱":@"Email"},@{@"地址":@"Address"}],@[@{@"修改密码":@""}]];
     
     NSArray *nowArray = [infoArray objectAtIndex:indexPath.section];
     if (indexPath.section == 0) {
@@ -165,6 +193,7 @@
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         
         cell.textLabel.text = [[infoDic allKeys] objectAtIndex:0];
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -181,8 +210,11 @@
         cell.left_middleLabel.text = [[infoDic allKeys] objectAtIndex:0];
         
         if (![[infoDic objectForKey:[[infoDic allKeys] objectAtIndex:0]] isEqualToString:@""]) {
-            cell.right_middleLabel.text = [personSingleTon valueForKey:[infoDic objectForKey:[[infoDic allKeys] objectAtIndex:0]]];
+            //cell.right_middleLabel.text = [personSingleTon valueForKey:[infoDic objectForKey:[[infoDic allKeys] objectAtIndex:0]]];
+            cell.right_middleLabel.text = [user valueForKey:[infoDic objectForKey:[[infoDic allKeys] objectAtIndex:0]]];
         }
+        
+        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }

@@ -9,6 +9,7 @@
 #import "EditPassVC.h"
 #import "XHNavigationView.h"
 #import "WSRequestManager.h"
+
 @interface EditPassVC ()
 @property(nonatomic,strong)XHNavigationView *navView;
 @property(nonatomic,strong)UIView *bgView;
@@ -84,7 +85,7 @@
     
     self.confirmText.layer.cornerRadius = 5;
     self.confirmText.layer.masksToBounds = YES;
-
+    //self.confirmText.secureTextEntry = YES;
     
     self.confirmText.font = [UIFont systemFontOfSize:14];
     self.confirmText.borderStyle = UITextBorderStyleRoundedRect;
@@ -116,9 +117,46 @@
     [self.navView.btn_login addTarget:self action:@selector(backBtn:) forControlEvents:UIControlEventTouchUpInside];
     self.navView.lbl_login_middle.text = @"修改密码";
     [self.navView.rightBtn setTitle:@"完成" forState:UIControlStateNormal];
+    [self.navView.rightBtn addTarget:self action:@selector(finishButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    
     
     [self.view addSubview:self.navView];
 }
+
+- (void)finishButtonClick{
+    DLog(@"finish ");
+    
+    if (![self.newsText.text isEqualToString:self.confirmText.text]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"新密码输入不同,请重输..." delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    
+    [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":[user stringForKey:@"IdNumber"],@"_OldPwd":self.originText.text,@"_NewPwd":self.newsText.text} withMethodName:CHANGEPASSWORD SuccessRequest:^(id data) {
+        NSArray *resultArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+        
+        if([resultArray count] > 0)
+        {
+            NSDictionary *resultDic = resultArray[0];
+            
+            if ([[resultDic objectForKey:@"Success"] isEqualToString:@"true"]) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                [alert show];
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:resultDic[@"ExMessage"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                [alert show];
+            }
+            
+            //[self showErrorHUDWithStr:resultDic[@"ExMessage"]];
+        }
+        
+    } FailRequest:^(id data, NSError *error) {
+        
+    }];
+}
+
 
 -(void)backBtn:(UIButton *)sender
 {
