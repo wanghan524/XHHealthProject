@@ -314,10 +314,20 @@
 
 -(void)loginBtn:(UIButton *)sender
 {
-    LoginVC *vc = [[LoginVC alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    
+    if ([user valueForKey:@"UserName"] == nil) {
+        LoginVC *vc = [[LoginVC alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
