@@ -58,22 +58,25 @@
 
 -(void)bulidTable
 {
-    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
+    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64) style:UITableViewStylePlain];
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
     //self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.infoTableView];
+    self.infoTableView.tableFooterView = [[UIView alloc] init];
     
     UIButton *bottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
     bottomButton.frame = CGRectMake(0, self.view.frame.size.height - 40, self.view.frame.size.width, 40);
-    [bottomButton setTitle:@"注销当前用户" forState:UIControlStateNormal];
-    [bottomButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [bottomButton setTitle:@"注销登录" forState:UIControlStateNormal];
+    [bottomButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    bottomButton.backgroundColor = [UIColor colorWithRed:211/255.0 green:211/255.0 blue:211/255.0 alpha:1];
     
     bottomButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    bottomButton.backgroundColor = [UIColor grayColor];
+    //bottomButton.backgroundColor = [UIColor grayColor];
     [bottomButton addTarget:self action:@selector(bottomButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    self.infoTableView.tableFooterView = bottomButton;
+    //self.infoTableView.tableFooterView = bottomButton;
+    [self.view addSubview:bottomButton];
     
     
 }
@@ -128,11 +131,16 @@
         return 80;
     }
     else{
-        return 44;
+        return (self.view.frame.size.height - 64 - 40 - 80 - 40 - 30) / 7;
     }
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 10;
+}
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 1;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     /*

@@ -140,7 +140,7 @@
     {
         cell.lab.text = self.btnNameArray[indexPath.row];
 
-        NSString *str = [NSString stringWithFormat:@"menu_unclick_%d",indexPath.row+1];
+        NSString *str = [NSString stringWithFormat:@"menu_unclick_%ld",indexPath.row+1];
         cell.img.image = [UIImage imageNamed:str];
     }
 
@@ -148,6 +148,141 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0:
+        {
+            
+            SurveyInfoVC *composition = [[SurveyInfoVC alloc]init];
+            composition.flagString = @"now";
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate.draw closeDrawerAnimated:YES completion:nil];
+            delegate.draw.centerViewController = nav;
+            
+//            SurveyInfoVC *infoVC = [[SurveyInfoVC alloc] init];
+//            [self.navigationController pushViewController:infoVC animated:YES];
+        }
+            break;
+        case 1:
+        {
+            BodyCheckVC *composition = [[BodyCheckVC alloc]init];
+            composition.flagString = @"now";
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate.draw closeDrawerAnimated:YES completion:nil];
+            delegate.draw.centerViewController = nav;
+            
+//            BodyCheckVC *check = [[BodyCheckVC alloc]init];
+//            [self.navigationController pushViewController:check animated:YES];
+            break;
+        }
+        case 2:
+        {
+            
+            BodyCompositionVC *composition = [[BodyCompositionVC alloc]init];
+            composition.flagString = @"now";
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate.draw closeDrawerAnimated:YES completion:nil];
+            delegate.draw.centerViewController = nav;
+//            BodyCompositionVC *composition = [[BodyCompositionVC alloc]init];
+//            [self.navigationController pushViewController:composition animated:YES];
+            break;
+        }
+        case 3:
+        {
+            
+            PressAndEcg *composition = [[PressAndEcg alloc]init];
+            composition.flagString = @"now";
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate.draw closeDrawerAnimated:YES completion:nil];
+            delegate.draw.centerViewController = nav;
+            
+//            PressAndEcg *composition = [[PressAndEcg alloc]init];
+//            [self.navigationController pushViewController:composition animated:YES];
+            
+            break;
+        }
+        case 4:
+        {
+            
+            GardiacAndPulmonary *composition = [[GardiacAndPulmonary alloc]init];
+            composition.flagString = @"now";
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate.draw closeDrawerAnimated:YES completion:nil];
+            delegate.draw.centerViewController = nav;
+            
+//            GardiacAndPulmonary *composition = [[GardiacAndPulmonary alloc]init];
+//            [self.navigationController pushViewController:composition animated:YES];
+            
+            break;
+        }
+        case 5:
+        {
+            
+            BMDViewController *composition = [[BMDViewController alloc]init];
+            composition.flagString = @"now";
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate.draw closeDrawerAnimated:YES completion:nil];
+            delegate.draw.centerViewController = nav;
+            
+//            BMDViewController *composition = [[BMDViewController alloc]init];
+//            [self.navigationController pushViewController:composition animated:YES];
+            
+            break;
+        }
+        case 6:
+        {
+            
+            EyeFundusExamVC *composition = [[EyeFundusExamVC alloc]init];
+            composition.flagString = @"now";
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate.draw closeDrawerAnimated:YES completion:nil];
+            delegate.draw.centerViewController = nav;
+            
+//            EyeFundusExamVC *exam = [[EyeFundusExamVC alloc]init];
+//            [self.navigationController pushViewController:exam animated:YES];
+            break;
+        }
+        case 7:
+        {
+            
+            RoutineBloodAndBloodViewController *composition = [[RoutineBloodAndBloodViewController alloc]init];
+            composition.flagString = @"now";
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate.draw closeDrawerAnimated:YES completion:nil];
+            delegate.draw.centerViewController = nav;
+            
+//            RoutineBloodAndBloodViewController *composition = [[RoutineBloodAndBloodViewController alloc]init];
+//            [self.navigationController pushViewController:composition animated:YES];
+            
+            break;
+        }
+        case 8:
+        {
+            
+            BiochemistryAndImmunityVC *composition = [[BiochemistryAndImmunityVC alloc]init];
+            composition.flagString = @"now";
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:composition];
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            [delegate.draw closeDrawerAnimated:YES completion:nil];
+            delegate.draw.centerViewController = nav;
+            
+//            BiochemistryAndImmunityVC *biochemistryVC = [[BiochemistryAndImmunityVC alloc]init];
+//            [self.navigationController pushViewController:biochemistryVC animated:YES];
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
 
 #pragma mark tableviewDelegate
 

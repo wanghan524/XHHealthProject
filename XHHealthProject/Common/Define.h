@@ -41,7 +41,7 @@
 //定义颜色
 #define COLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 
-#define NAVColor COLOR(107.f, 180.f, 109.f, 1.f)
+#define NAVColor COLOR(43.f, 181.f, 104.f, 1.f)
 
 
 #define MAX_WIDTH(A,B) (((A)>(B))?(A):(B))

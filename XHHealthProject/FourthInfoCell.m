@@ -11,7 +11,22 @@
 @implementation FourthInfoCell
 
 - (void)awakeFromNib {
+    
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.middle_downLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.middle_upLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.right_downLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.right_upLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    self.middle_downLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.middle_upLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.right_downLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.right_upLabel.translatesAutoresizingMaskIntoConstraints = NO;
     // Initialization code
+}
+
+- (void)setTranslatesAutoresizingMaskIntoConstraints:(BOOL)flag{
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

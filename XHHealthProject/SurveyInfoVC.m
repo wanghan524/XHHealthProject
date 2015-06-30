@@ -22,6 +22,9 @@
 #import "PersonInfoModel.h"
 #import "UIColor+Category.h"
 
+#import "AppDelegate.h"
+#import "HomePageVC.h"
+
 @interface SurveyInfoVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate>{
     BOOL firstSecondFlag;
     BOOL secondSectionFlag;
@@ -147,13 +150,28 @@
 -(void)bulidHomePageNav
 {
     self.navView = [[XHNavigationView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth,64)];
-    [self.navView layoutXHNavWithType:Type_LoginNav];
+    [self.navView layoutXHNavWithType:Type_RightBtn];
     self.navView.backgroundColor = NAVColor;
     [self.navView.btn_login setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
+    [self.navView.rightBtn setTitle:@"返回" forState:UIControlStateNormal];
+    [self.navView.rightBtn addTarget:self action:@selector(backButtonClick) forControlEvents:UIControlEventTouchUpInside];
     
-    self.navView.lbl_login_middle.text = @"协和健康管理";
+    self.navView.lbl_login_middle.text = @"问卷信息";
     //    [self.navView.btn_login addTarget:self action:@selector(loginBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.navView];
+}
+
+- (void)backButtonClick{
+    if ([self.flagString isEqualToString:@"now"]) {
+        HomePageVC *homeVC = [[HomePageVC alloc]init];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:homeVC];
+        
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        [delegate.draw closeDrawerAnimated:YES completion:nil];
+        delegate.draw.centerViewController = nav;
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -406,7 +424,12 @@
 }
 
 - (void)requestLiftStyleData{
-    [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":@"61010319600411241X"} withMethodName:LIFRSTYLE SuccessRequest:^(id data) {
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    
+    NSString *numberString = [user stringForKey:@"IdNumber"];
+    
+    [WSRequestManager XHGetRequestParameters:@{@"_IDNumber":numberString} withMethodName:LIFRSTYLE SuccessRequest:^(id data) {
         NSArray *resultArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         
         if([resultArray count] > 0)
@@ -797,8 +820,8 @@
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
                 cell.textLabel.text = [infoDic objectForKey:keyString];
                 cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
-                cell.backgroundColor = [UIColor colorWithHexString:@"EAEAEA"];
-                cell.textLabel.textAlignment = NSTextAlignmentCenter;
+                cell.backgroundColor = [UIColor colorWithHexString:@"E5E5E5"];
+                cell.textLabel.textAlignment = NSTextAlignmentLeft;
             }
             return cell;
         }

@@ -9,5 +9,5 @@
 #import "BaseVC.h"
 
 @interface SurveyInfoVC : BaseVC
-
+@property (nonatomic,strong) NSString *flagString;
 @end

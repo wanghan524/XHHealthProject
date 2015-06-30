@@ -13,6 +13,9 @@
 #import "XHHealthRequest.h"
 #import "FitNessModel.h"
 
+#import "AppDelegate.h"
+#import "HomePageVC.h"
+
 @interface BodyCheckVC ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)XHNavigationView *navView;
 @property(nonatomic,strong)UITableView *infoTableView;
@@ -101,11 +104,9 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        if (firstSecondFlag) {
-            return self.orderMuArr.count;
-        }else{
-            return 0;
-        }
+        
+        return self.orderMuArr.count;
+       
         
     }
     return 0;
@@ -159,11 +160,11 @@
         {
             if(firstSecondFlag)
             {
-                img = [UIImage imageNamed:@"top"];
+                //img = [UIImage imageNamed:@"top"];
             }
             else
             {
-                img = [UIImage imageNamed:@"bottom"];
+                //img = [UIImage imageNamed:@"bottom"];
             }
             break;
         }
@@ -251,7 +252,7 @@
 -(void)bulidHomePageNav
 {
     self.navView = [[XHNavigationView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth,64)];
-    [self.navView layoutXHNavWithType:Type_LoginNav];
+    [self.navView layoutXHNavWithType:Type_RightBtn];
     self.navView.backgroundColor = NAVColor;
     [self.navView.btn_login setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
@@ -260,10 +261,23 @@
     }else{
         self.navView.lbl_login.text = @"登录";
     }
-    self.navView.lbl_login_middle.text = @"协和健康管理";
+    self.navView.lbl_login_middle.text = @"体制检查";
+    [self.navView.rightBtn setTitle:@"返回" forState:UIControlStateNormal];
+    [self.navView.rightBtn addTarget:self action:@selector(backButtonClick) forControlEvents:UIControlEventTouchUpInside];
     //    [self.navView.btn_login addTarget:self action:@selector(loginBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.navView];
 }
-
+- (void)backButtonClick{
+    if ([self.flagString isEqualToString:@"now"]) {
+        HomePageVC *homeVC = [[HomePageVC alloc]init];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:homeVC];
+        
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        [delegate.draw closeDrawerAnimated:YES completion:nil];
+        delegate.draw.centerViewController = nav;
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 
 @end

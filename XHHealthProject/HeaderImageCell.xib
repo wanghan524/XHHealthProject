@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nac-FW-JJy">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nac-FW-JJy">
                         <rect key="frame" x="10" y="2" width="140" height="74"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="140" id="UJ4-Am-3aQ"/>
@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head.png" translatesAutoresizingMaskIntoConstraints="NO" id="nms-tX-nDn">
-                        <rect key="frame" x="216" y="10" width="60" height="59"/>
+                        <rect key="frame" x="240" y="10" width="60" height="59"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Ptp-Be-f0b"/>
                         </constraints>
@@ -33,7 +33,7 @@
                 <constraints>
                     <constraint firstItem="Nac-FW-JJy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="FcX-y0-Ktz"/>
                     <constraint firstAttribute="bottom" secondItem="nms-tX-nDn" secondAttribute="bottom" constant="10" id="QDC-af-MBp"/>
-                    <constraint firstAttribute="trailing" secondItem="nms-tX-nDn" secondAttribute="trailing" constant="44" id="RVH-gm-Ac3"/>
+                    <constraint firstAttribute="trailing" secondItem="nms-tX-nDn" secondAttribute="trailing" constant="20" id="RVH-gm-Ac3"/>
                     <constraint firstAttribute="bottom" secondItem="Nac-FW-JJy" secondAttribute="bottom" constant="3" id="hQY-5X-qOu"/>
                     <constraint firstItem="Nac-FW-JJy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="tLU-zx-pRL"/>
                     <constraint firstItem="nms-tX-nDn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="uWs-eh-uXE"/>
