@@ -7,7 +7,7 @@
 //
 
 #import "BaseVC.h"
-
+#import "UIColor+Category.h"
 @interface BiochemistryAndImmunityVC : BaseVC
 
 @end

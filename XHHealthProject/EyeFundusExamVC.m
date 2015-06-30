@@ -90,7 +90,7 @@
 }
 -(void)bulidTable
 {
-    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
+    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 70, ScreenWidth, ScreenHeight - 70) style:UITableViewStyleGrouped];
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -384,9 +384,21 @@
             NSString *keyString = [[infoDic allKeys] firstObject];
             
             BloodPressCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            cell.backgroundColor = [UIColor whiteColor];
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"BloodPressCell" owner:self options:nil] lastObject];
             }
+            
+            if(indexPath.row == 0)
+            {
+                cell.one.text = @"检测指标";
+                cell.two.text = @"右眼";
+                cell.three.text= @"左眼";
+                cell.backgroundColor = [UIColor colorWithHexString:@"#EAEAEA"];
+                return cell;
+            }
+            
+            
             if(![keyString isEqualToString:@""])
             {
                 cell.one.text = [personInfoModel valueForKeyPath:keyString];
@@ -451,6 +463,17 @@
             if (cell == nil) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"BloodPressCell" owner:self options:nil] lastObject];
             }
+
+            cell.backgroundColor = [UIColor whiteColor];
+            if(indexPath.row == 0)
+            {
+                cell.one.text = @"检测指标";
+                cell.two.text = @"右眼";
+                cell.three.text= @"左眼";
+                cell.backgroundColor = [UIColor colorWithHexString:@"#EAEAEA"];
+                return cell;
+            }
+
             
             if(![keyString isEqualToString:@""])
             {
@@ -554,7 +577,7 @@
                     if (cell == nil) {
                         cell = [[[NSBundle mainBundle] loadNibNamed:@"EyeGenerCheckCell" owner:self options:nil] lastObject];
                     }
-                    cell.one.text = keyString;
+                    cell.one.text = @"屈光参差情况";
                     cell.two.text = bodyCheckModel.Qgdia_value;
                     return cell;
 
@@ -622,7 +645,7 @@
     
     if(indexPath.section == 2)
     {
-        return 180.f;
+        return 219.f;
     }
     return 44;
 }
@@ -641,6 +664,8 @@
 -(void)loadEcgKey
 {
     self.eyeGenerlMuKeyArr = [[NSMutableArray alloc]initWithCapacity:0];
+   
+    [self.eyeGenerlMuKeyArr addObject:@{@"TTTTT":@"检测指标"}];
     [self.eyeGenerlMuKeyArr addObject:@{@"Vision_cn":@"日常生活视力"}];
     [self.eyeGenerlMuKeyArr addObject:@{@"PeryGium_cn":@"是否有翼状胬肉"}];
     [self.eyeGenerlMuKeyArr addObject:@{@"Nasal_cn":@"鼻侧分级"}];
@@ -652,6 +677,7 @@
 -(void)loadBloodKey
 {
     self.eyeQuGuangMuKeyArr = [[NSMutableArray alloc]initWithCapacity:0];
+    [self.eyeQuGuangMuKeyArr addObject:@{@"TTTTT":@"检测指标"}];
     [self.eyeQuGuangMuKeyArr addObject:@{@"S_cn":@"球镜度数"}];
     [self.eyeQuGuangMuKeyArr addObject:@{@"C_cn":@"柱镜度数"}];
     [self.eyeQuGuangMuKeyArr addObject:@{@"A_cn":@"散光轴角"}];

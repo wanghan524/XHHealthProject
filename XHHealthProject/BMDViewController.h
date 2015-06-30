@@ -7,7 +7,8 @@
 //
 
 #import "BaseVC.h"
-
+#import "UIColor+Category.h"
+#import "BoodCell.h"
 @interface BMDViewController : BaseVC
 
 @end

@@ -28,6 +28,8 @@
 		A460689E1B2F220E00DBF04E /* PersonInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A460689D1B2F220E00DBF04E /* PersonInfoVC.m */; };
 		A46068A51B2F22D500DBF04E /* BaseInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A46068A31B2F22D500DBF04E /* BaseInfoCell.m */; };
 		A46068A61B2F22D500DBF04E /* BaseInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46068A41B2F22D500DBF04E /* BaseInfoCell.xib */; };
+		A4AA21BE1B41A59600FAEBB6 /* BoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA21BC1B41A59600FAEBB6 /* BoodCell.m */; };
+		A4AA21BF1B41A59600FAEBB6 /* BoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AA21BD1B41A59600FAEBB6 /* BoodCell.xib */; };
 		A4ACAF931B2D50670037E00C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4ACAF921B2D50670037E00C /* Images.xcassets */; };
 		A4ACAFA21B2D50670037E00C /* XHHealthProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACAFA11B2D50670037E00C /* XHHealthProjectTests.m */; };
 		A4ACAFCB1B2D51510037E00C /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4ACAFC61B2D51510037E00C /* SVProgressHUD.bundle */; };
@@ -164,6 +166,9 @@
 		A46068A21B2F22D500DBF04E /* BaseInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseInfoCell.h; sourceTree = "<group>"; };
 		A46068A31B2F22D500DBF04E /* BaseInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseInfoCell.m; sourceTree = "<group>"; };
 		A46068A41B2F22D500DBF04E /* BaseInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseInfoCell.xib; sourceTree = "<group>"; };
+		A4AA21BB1B41A59600FAEBB6 /* BoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoodCell.h; sourceTree = "<group>"; };
+		A4AA21BC1B41A59600FAEBB6 /* BoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoodCell.m; sourceTree = "<group>"; };
+		A4AA21BD1B41A59600FAEBB6 /* BoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoodCell.xib; sourceTree = "<group>"; };
 		A4ACAF821B2D50670037E00C /* XHHealthProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XHHealthProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4ACAF861B2D50670037E00C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4ACAF871B2D50670037E00C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -447,6 +452,16 @@
 				A46068A41B2F22D500DBF04E /* BaseInfoCell.xib */,
 			);
 			name = BaseInfo;
+			sourceTree = "<group>";
+		};
+		A4AA21BA1B41A57E00FAEBB6 /* BoodCell */ = {
+			isa = PBXGroup;
+			children = (
+				A4AA21BB1B41A59600FAEBB6 /* BoodCell.h */,
+				A4AA21BC1B41A59600FAEBB6 /* BoodCell.m */,
+				A4AA21BD1B41A59600FAEBB6 /* BoodCell.xib */,
+			);
+			name = BoodCell;
 			sourceTree = "<group>";
 		};
 		A4ACAF791B2D50670037E00C = {
@@ -738,6 +753,7 @@
 		A4ACB0081B2DBEA60037E00C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				A4AA21BA1B41A57E00FAEBB6 /* BoodCell */,
 				EF574DE51B3FE33E00A63BC3 /* personInfoCell */,
 				A4F7525E1B3C538700CEE7BE /* ButtonCollectionCell */,
 				A4F7522F1B3AF44E00CEE7BE /* EyeFundusExamCell */,
@@ -1348,6 +1364,7 @@
 				A4ACB0151B2EA4670037E00C /* back.png in Resources */,
 				A4F752581B3C537300CEE7BE /* 7_no.png in Resources */,
 				A4F752861B3D8AC300CEE7BE /* line.gif in Resources */,
+				A4AA21BF1B41A59600FAEBB6 /* BoodCell.xib in Resources */,
 				A4F7528B1B3D8AC300CEE7BE /* headfunction.png in Resources */,
 				A4F7528A1B3D8AC300CEE7BE /* pressecg.png in Resources */,
 				EF583E211B37A9A800450E7A /* SecondCell.xib in Resources */,
@@ -1401,6 +1418,7 @@
 				A460688A1B2F04F100DBF04E /* ButtonItem.m in Sources */,
 				EF583E201B37A9A800450E7A /* SecondCell.m in Sources */,
 				A4F7530D1B40332400CEE7BE /* ListButton.m in Sources */,
+				A4AA21BE1B41A59600FAEBB6 /* BoodCell.m in Sources */,
 				A4F752281B3AF1F300CEE7BE /* EyeFundusExamModel.m in Sources */,
 				A4F751BB1B37FA2200CEE7BE /* DiseaseStatusModel.m in Sources */,
 				A460688B1B2F04F100DBF04E /* UIColor+Category.m in Sources */,

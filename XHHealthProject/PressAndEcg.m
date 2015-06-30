@@ -71,7 +71,7 @@
 }
 -(void)bulidTable
 {
-    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
+    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 70, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -285,40 +285,64 @@
     if (indexPath.section == 0)
     {
         
+        if([self.personDataArray count] > 0)
+        {
         
-        BloodPressureModel *personInfoModel = [self.personDataArray objectAtIndex:0];
-        NSDictionary *infoDic = [self.bloodAndRateAndTempMuKeyArr objectAtIndex:indexPath.row];
-        
-        NSString *keyString = [[infoDic allKeys] firstObject];
-        
-        ThirdInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"ThirdInfoCell" owner:self options:nil] lastObject];
+            BloodPressureModel *personInfoModel = [self.personDataArray objectAtIndex:0];
+            NSDictionary *infoDic = [self.bloodAndRateAndTempMuKeyArr objectAtIndex:indexPath.row];
+            
+            NSString *keyString = [[infoDic allKeys] firstObject];
+            
+            ThirdInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (cell == nil) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"ThirdInfoCell" owner:self options:nil] lastObject];
+            }
+            if(indexPath.row == 0)
+            {
+                cell.thirdFierstLabel.text = @"检测指标";
+                cell.thirdSecondLabel.text = @"检测值";
+                cell.thirdThirdLabel.text = @"参考值范围";
+                cell.backgroundColor = [UIColor colorWithHexString:@"EAEAEA"];
+                return cell;
+            }
+            
+            cell.thirdFierstLabel.text = [infoDic objectForKey:keyString];
+            cell.thirdSecondLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
+            cell.thirdThirdLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@_refinterVal",keyString]];
+            
+            return cell;
         }
-        
-        cell.thirdFierstLabel.text = [infoDic objectForKey:keyString];
-        cell.thirdSecondLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
-        cell.thirdThirdLabel.text = [personInfoModel valueForKeyPath:[NSString stringWithFormat:@"%@_refinterVal",keyString]];
-        
-        return cell;
-
         
     }
     else if (indexPath.section == 1){
-        
+       
+        if([self.bodyDataArray count] > 0)
+        {
         EcgModel *bodyCheckModel = [self.bodyDataArray objectAtIndex:0];
         
-        static NSString *thirdIdentifier = @"BloodPressCell";
+        static NSString *thirdIdentifier = @"ThirdInfoCell";
         
         NSDictionary *infoDic = [self.ecgMuKeyArr objectAtIndex:indexPath.row];
         
         NSString *keyString = [[infoDic allKeys] firstObject];
         
-        BloodPressCell *cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier];
+        ThirdInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        cell.backgroundColor = [UIColor whiteColor];
         if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"BloodPressCell" owner:self options:nil] lastObject];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ThirdInfoCell" owner:self options:nil] lastObject];
         }
         
+            
+        if(indexPath.row == 0)
+        {
+            cell.thirdFierstLabel.text = @"检测指标";
+            cell.thirdSecondLabel.text = @"检测值";
+            cell.thirdThirdLabel.text = @"参考值范围";
+            cell.backgroundColor = [UIColor colorWithHexString:@"EAEAEA"];
+            return cell;
+
+        }
+            
         if(![keyString isEqualToString:@""])
         {
             if([keyString isEqualToString:@"EcgResult"])
@@ -351,13 +375,18 @@
             }
             else
             {
-                cell.one.text = [infoDic objectForKey:keyString];
-                cell.two.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
-                cell.three.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_refinterVal",keyString]];
+//                cell.one.text = [infoDic objectForKey:keyString];
+//                cell.two.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
+//                cell.three.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_refinterVal",keyString]];
+                
+                
+                cell.thirdFierstLabel.text = [infoDic objectForKey:keyString];
+                cell.thirdSecondLabel.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
+                cell.thirdThirdLabel.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_refinterVal",keyString]];
             }
         }
         return cell;
-        
+        }
         
         
     }
@@ -391,6 +420,7 @@
 -(void)loadEcgKey
 {
     self.ecgMuKeyArr = [[NSMutableArray alloc]initWithCapacity:0];
+    [self.ecgMuKeyArr addObject:@{@"TitTTTT":@"检测指标"}];
     [self.ecgMuKeyArr addObject:@{@"Rate":@"平均心率(心室率)((次/分))"}];
     [self.ecgMuKeyArr addObject:@{@"Pr":@"PR间期(ms)"}];
     [self.ecgMuKeyArr addObject:@{@"Qrs":@"QRS时限(ms)"}];
@@ -408,6 +438,7 @@
 -(void)loadBloodKey
 {
     self.bloodAndRateAndTempMuKeyArr = [[NSMutableArray alloc]initWithCapacity:0];
+    [self.bloodAndRateAndTempMuKeyArr addObject:@{@"TitTTTT":@"检测指标"}];
     [self.bloodAndRateAndTempMuKeyArr addObject:@{@"Hsbp":@"收缩压(mmHg)"}];
     [self.bloodAndRateAndTempMuKeyArr addObject:@{@"Hdbp":@"舒张压(mmHg)"}];
     [self.bloodAndRateAndTempMuKeyArr addObject:@{@"Pulse":@"心率(次/分)"}];

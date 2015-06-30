@@ -64,6 +64,7 @@
 -(void)bulidOrderMuArr
 {
     self.orderMuArr = [[NSMutableArray alloc]initWithCapacity:0];
+    [self.orderMuArr addObject:@{@"TitleTTT":@"检测指标"}];
     [self.orderMuArr addObject:@{@"Jump_cn":@"纵跳最大值(cm)"}];
     [self.orderMuArr addObject:@{@"Grip_cn":@"握力最大值(kg)"}];
     [self.orderMuArr addObject:@{@"Bending_cn":@"坐位体前屈最大值(cm)"}];
@@ -72,7 +73,7 @@
 
 -(void)bulidTable
 {
-    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64) style:UITableViewStylePlain];
+    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 70, ScreenWidth, ScreenHeight - 64) style:UITableViewStylePlain];
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -208,6 +209,14 @@
     }
     else
     {
+        if(indexPath.row == 0)
+        {
+            cell.thirdFierstLabel.text = @"检测指标";
+            cell.thirdSecondLabel.text = @"检测值";
+            cell.thirdThirdLabel.text = @"参考值范围";
+            cell.backgroundColor = [UIColor colorWithHexString:@"EAEAEA"];
+            return cell;
+        }
         NSDictionary *tmpDic = self.orderMuArr[[indexPath row]];
         NSString *key = [[tmpDic allKeys]firstObject];
         
