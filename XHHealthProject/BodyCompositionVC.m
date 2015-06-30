@@ -49,10 +49,12 @@
             if(firstSecondFlag)
             {
                 img = [UIImage imageNamed:@"top"];
+                self.imgView.hidden = NO;
             }
             else
             {
                 img = [UIImage imageNamed:@"bottom"];
+                self.imgView.hidden = YES;
             }
             break;
         }
@@ -116,7 +118,7 @@
 -(void)bulidTopLabel
 {
     
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 44+NAVIGATIONHEIGHT, ScreenWidth, 36)];
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 6+44+NAVIGATIONHEIGHT, ScreenWidth, 36)];
     imageView.image = [UIImage imageNamed:@"shenti"];
     [self.view addSubview:imageView];
 

@@ -7,7 +7,7 @@
 //
 
 #import "BaseVC.h"
-
+#import "UIColor+Category.h"
 @interface PressAndEcg : BaseVC
 
 @end

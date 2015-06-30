@@ -79,7 +79,7 @@
 
 -(void)loadPulmonaryKey
 {
-    
+    [self.pulmonaryOrderArray addObject:@{@"TTTTTT":@"检测指标"}];
     [self.pulmonaryOrderArray addObject:@{@"Vt":@"潮气量(L)"}];
     [self.pulmonaryOrderArray addObject:@{@"Bf":@"呼吸频率(次/分)"}];
     [self.pulmonaryOrderArray addObject:@{@"Mv":@"每分钟通气量(L/min)"}];
@@ -100,7 +100,7 @@
 
 -(void)loadGardiacKey
 {
-    
+    [self.gardiacOrderArray addObject:@{@"TTTTTT":@"检测指标"}];
     [self.gardiacOrderArray addObject:@{@"Ef":@"左室射血分数(%)"}];
     [self.gardiacOrderArray addObject:@{@"LvidD":@"左室舒张末期内径(cm)"}];
     
@@ -116,7 +116,7 @@
 }
 -(void)bulidTable
 {
-    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
+    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 70, ScreenWidth, ScreenHeight - 70) style:UITableViewStyleGrouped];
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -256,9 +256,22 @@
         NSString *keyString = [[infoDic allKeys] firstObject];
         
         ThirdInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        cell.backgroundColor =[UIColor whiteColor];
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ThirdInfoCell" owner:self options:nil] lastObject];
         }
+        
+        if(indexPath.row == 0)
+        {
+            cell.thirdFierstLabel.text = @"检测指标";
+            cell.thirdSecondLabel.text = @"检测值";
+            cell.thirdThirdLabel.text = @"参考值范围";
+            cell.backgroundColor = [UIColor colorWithHexString:@"EAEAEA"];
+            return cell;
+            
+        }
+
+        
         
         if (self.gardiacDataArray.count > 0) {
             GardiacModel *gardiacModel = [self.gardiacDataArray objectAtIndex:0];
@@ -286,7 +299,27 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"PulmonaryInfoCell" owner:self options:nil] lastObject];
         }
+        cell.backgroundColor = [UIColor whiteColor];
+        
+        
+        
         if (self.pulmonaryDataArray.count > 0) {
+            
+            
+            if(indexPath.row == 0)
+            {
+                cell.left_middleLabel.text = @"检测指标";
+                cell.middle_leftLabel.text = @"实测值";
+                cell.middle_rightLabel.text= @"正常预计值";
+                cell.right_middleLabel.text = @"实测值/预计值(%)";
+                cell.backgroundColor = [UIColor colorWithHexString:@"EAEAEA"];
+                return cell;
+                
+            }
+
+            
+            
+            
             pulmonaryModel *pulmonaryInfoModal = [self.pulmonaryDataArray objectAtIndex:0];
             cell.left_middleLabel.text = [NSString stringWithFormat:@"%@",[pulmonaryInfoModal valueForKeyPath:[NSString stringWithFormat:@"%@_cn",keyString]]];
             cell.middle_leftLabel.text = [NSString stringWithFormat:@"%@",[pulmonaryInfoModal valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]]];

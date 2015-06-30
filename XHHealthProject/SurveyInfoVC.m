@@ -20,6 +20,7 @@
 #import "DiseaseStatusModel.h"
 #import "BodyCheckModel.h"
 #import "PersonInfoModel.h"
+#import "UIColor+Category.h"
 
 @interface SurveyInfoVC ()<UITableViewDataSource,UITableViewDelegate,MBProgressHUDDelegate>{
     BOOL firstSecondFlag;
@@ -98,7 +99,7 @@
     
     NSArray *firstOrderArray = @[@{@"Name":@"姓名"},@{@"Sex":@"性别"},@{@"Race":@"民族"},@{@"Birthday":@"出生日期(阳历)"},@{@"Age":@"实足年龄(岁)"},@{@"Birplace":@"出生地"},@{@"NowPlace":@"现住地"},@{@"Call":@"联系电话"},@{@"IdNumber":@"身份证号码"},@{@"Edu":@"文化程度"},@{@"Elevelm":@"个人收人状况"},@{@"Marital":@"婚姻状况"},@{@"Occupation":@"职业"},@{@"Felevely":@"家庭年收入"},@{@"Fnumber":@"--"},@{@"Menophaniaage":@"初潮年龄(岁)"},@{@"Regular":@"月经规律"},@{@"Menopayage":@"绝经年龄(岁)"}];
     
-    NSArray *secondOrderArray = @[@{@"Bmi":@"BMI(kg/m²)"},@{@"Shight":@"坐高(cm)"},@{@"Height":@"身高(cm)"},@{@"Weight":@"体重(kg)"},@{@"Neck":@"颈围平均值(cm)"},@{@"Waist":@"33.47"},@{@"Hip":@"臀围平均值(cm)"}];
+    NSArray *secondOrderArray = @[@{@"titleTT":@"检测指标"},@{@"Bmi":@"BMI(kg/m²)"},@{@"Shight":@"坐高(cm)"},@{@"Height":@"身高(cm)"},@{@"Weight":@"体重(kg)"},@{@"Neck":@"颈围平均值(cm)"},@{@"Waist":@"33.47"},@{@"Hip":@"臀围平均值(cm)"}];
     
     NSArray *thirdOrderArray = @[@{@"Hbp":@"是否患高血压"},@{@"Dia":@"糖尿病"},@{@"Otherdis":@"患有其他疾病"},@{@"Vaccination":@"乙肝疫苗接种史"},@{@"VaccinationDate":@"乙肝疫苗接种时间"},@{@"Fhbp":@"家族中是否患高血压"},@{@"Fdia":@"家族中患糖尿病"},@{@"Ft":@"家族中患肿瘤"},@{@"Fdis":@"家族患其他疾病"},@{@"Hi":@"参加医疗保险情况"}];
     
@@ -523,12 +524,6 @@
     
     if (indexPath.section == 0) {
         
-        
-        
-        
-        
-        
-        
         NSDictionary *infoDic = [self.firstSectionArray objectAtIndex:indexPath.row];
         
         NSString *keyString = [[infoDic allKeys] firstObject];
@@ -714,8 +709,9 @@
         
         static NSString *thirdIdentifier = @"ThirdInfoCell";
         
+
         NSDictionary *infoDic = [self.secondSectionArray objectAtIndex:indexPath.row];
-        
+            
         NSString *keyString = [[infoDic allKeys] firstObject];
         
         ThirdInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:thirdIdentifier];
@@ -724,6 +720,17 @@
         }
         
         if (self.bodyDataArray.count > 0) {
+            
+            if(indexPath.row == 0)
+            {
+                cell.thirdFierstLabel.text = @"检测指标";
+                cell.thirdSecondLabel.text = @"检测值";
+                cell.thirdThirdLabel.text = @"参考值范围";
+                cell.backgroundColor = [UIColor colorWithHexString:@"EAEAEA"];
+                return cell;
+            }
+            
+            
             BodyCheckModel *bodyCheckModel = [self.bodyDataArray objectAtIndex:0];
             cell.thirdFierstLabel.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_cn",keyString]];
             cell.thirdSecondLabel.text = [bodyCheckModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]];
@@ -789,6 +796,8 @@
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
                 cell.textLabel.text = [infoDic objectForKey:keyString];
+                cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
+                cell.backgroundColor = [UIColor colorWithHexString:@"EAEAEA"];
                 cell.textLabel.textAlignment = NSTextAlignmentCenter;
             }
             return cell;

@@ -67,7 +67,7 @@
 
 -(void)bulidTable
 {
-    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
+    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 70, ScreenWidth, ScreenHeight - 70) style:UITableViewStyleGrouped];
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -96,6 +96,7 @@
 }
 
 - (void)loadBMDkey{
+    [self.bmdOrderArray addObject:@{@"TTTTTTT":@"检测指标"}];
     [self.bmdOrderArray addObject:@{@"T":@"T值"}];
     [self.bmdOrderArray addObject:@{@"Z":@"Z值"}];
     [self.bmdOrderArray addObject:@{@"Bua":@"宽带超声振幅衰减（db/MHz）"}];
@@ -197,11 +198,11 @@
     
     if ([keyString isEqualToString:@"Diagnosis"]) {
         
-        static NSString *identifier = @"firstCell";
+        static NSString *identifier = @"BoodCell";
         
-        FirstCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        BoodCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"FirstCell" owner:self options:nil] lastObject];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"BoodCell" owner:self options:nil] lastObject];
         }
         
         if (self.bmdDataArray.count > 0) {
@@ -209,12 +210,12 @@
             
             BMDModel *bmdModel = [self.bmdDataArray objectAtIndex:0];
             
-            cell.left_middleLabel.text = [NSString stringWithFormat:@"%@",[bmdModel valueForKeyPath:[NSString stringWithFormat:@"%@_cn",keyString]]] ;
-            cell.right_middleLabel.text = [NSString stringWithFormat:@"%@",[bmdModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]]];
+            cell.one.text = [NSString stringWithFormat:@"%@",[bmdModel valueForKeyPath:[NSString stringWithFormat:@"%@_cn",keyString]]] ;
+            cell.two.text = [NSString stringWithFormat:@"%@",[bmdModel valueForKeyPath:[NSString stringWithFormat:@"%@_value",keyString]]];
             
         }else{
-            cell.left_middleLabel.text = [NSString stringWithFormat:@"%@",[infoDic objectForKey:keyString]];
-            cell.right_middleLabel.text = @"--";
+            cell.one.text = [NSString stringWithFormat:@"%@",[infoDic objectForKey:keyString]];
+            cell.two.text = @"--";
         }
         
         return cell;
@@ -226,9 +227,19 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ThirdInfoCell" owner:self options:nil] lastObject];
         }
+        cell.backgroundColor = [UIColor whiteColor];
         
         if (self.bmdDataArray.count > 0) {
             
+            if(indexPath.row == 0)
+            {
+                cell.thirdFierstLabel.text = @"检测指标";
+                cell.thirdSecondLabel.text = @"检测值";
+                cell.thirdThirdLabel.text = @"参考值范围";
+                cell.backgroundColor = [UIColor colorWithHexString:@"EAEAEA"];
+                return cell;
+                
+            }
             
             BMDModel *gardiacModel = [self.bmdDataArray objectAtIndex:0];
             

@@ -68,7 +68,7 @@
 
 -(void)bulidTable
 {
-    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
+    self.infoTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 70, ScreenWidth, ScreenHeight - 70) style:UITableViewStyleGrouped];
     self.infoTableView.delegate = self;
     self.infoTableView.dataSource = self;
     self.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -98,6 +98,9 @@
 }
 
 - (void)loadRoutineBloodAndBloodkey{
+    
+    [self.routineBloodAndBloodOrderArray addObject:@{@"TTTTTTT":@"****"}];
+    
     [self.routineBloodAndBloodOrderArray addObject:@{@"Wbc":@"白细胞计数（10⁹/L）"}];
     [self.routineBloodAndBloodOrderArray addObject:@{@"Hct":@"红细胞压积(%)"}];
     [self.routineBloodAndBloodOrderArray addObject:@{@"Lymphp":@"淋巴细胞百分比(%)"}];
@@ -198,12 +201,23 @@
     static NSString *identifier = @"ThirdInfoCell";
     
     ThirdInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    cell.backgroundColor = [UIColor whiteColor];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ThirdInfoCell" owner:self options:nil] lastObject];
     }
     
     if (self.routineBloodAndBloodDataArray.count > 0) {
         
+        
+        if(indexPath.row == 0)
+        {
+            cell.thirdFierstLabel.text = @"检测指标";
+            cell.thirdSecondLabel.text = @"检测值";
+            cell.thirdThirdLabel.text = @"参考值范围";
+            cell.backgroundColor = [UIColor colorWithHexString:@"EAEAEA"];
+            return cell;
+            
+        }
         
         RoutineBloodAndBloodModel *gardiacModel = [self.routineBloodAndBloodDataArray objectAtIndex:0];
         
