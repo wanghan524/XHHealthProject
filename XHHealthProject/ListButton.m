@@ -30,6 +30,7 @@
     self.btnName = [[UILabel alloc]initWithFrame:CGRectMake(10, (self.frame.size.height - 30)/2, 150, 30)];
     self.btnName.backgroundColor = [UIColor clearColor];
     self.btnName.font = [UIFont boldSystemFontOfSize:13];
+    self.btnName.userInteractionEnabled = YES;
     [self.listbtn addSubview:self.btnName];
     
     self.rightImgView = [[UIImageView alloc]initWithFrame:CGRectMake(self.frame.size.width - 20, (40-15)/2, 15, 15)];

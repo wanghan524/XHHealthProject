@@ -9,7 +9,9 @@
 #import "BaseVC.h"
 #import "AppDelegate.h"
 #import "HomePageVC.h"
-
-@interface PersonInfoViewController : BaseVC
+#import "UIColor+Category.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "Define.h"
+@interface PersonInfoViewController : BaseVC<UIActionSheetDelegate>
 
 @end

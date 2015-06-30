@@ -38,6 +38,28 @@
     [self startRequest];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    if ([user valueForKey:@"UserName"] != nil) {
+        self.navView.lbl_login.text = [user valueForKey:@"UserName"];
+        
+        NSURL *docsUrl = [[[NSFileManager defaultManager]URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask]lastObject];
+        NSString *resultStr = [[docsUrl path]stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",@"headImage"]];
+        UIImage *imgs = [UIImage imageWithContentsOfFile:resultStr];
+        if (imgs != nil) {
+            [self.navView.btn_login setImage:imgs forState:UIControlStateNormal];
+        }else{
+            [self.navView.btn_login setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
+        }
+        
+        self.navView.btn_login.layer.cornerRadius = 15.f;
+        self.navView.btn_login.layer.masksToBounds  = YES;
+        
+        
+    }else{
+        self.navView.lbl_login.text = @"登录";
+    }
+}
 
 
 -(void)startRequest

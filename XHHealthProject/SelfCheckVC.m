@@ -9,6 +9,7 @@
 #import "SelfCheckVC.h"
 #import "XHNavigationView.h"
 #import "ListButton.h"
+#import "SelfCheckView.h"
 
 #import "WSRequestManager.h"
 @interface SelfCheckVC (){
@@ -176,6 +177,8 @@
  */
 - (void)generButtonClick:(id)sender{
     DLog(@"gener");
+    [self requestGetSelfTestItemClassData];
+    
 }
 
 - (void)heightButtonClick:(id)sender{
@@ -184,7 +187,7 @@
 
 - (void)sexButtonClick:(id)sender{
     DLog(@"sex");
-}
+    }
 
 - (void)ageButtonClick:(id)sender{
     DLog(@"age");
@@ -198,7 +201,10 @@
         {
             //NSDictionary *resultDic = resultArray[0];
             
-            
+            SelfCheckView *viewa = [[SelfCheckView alloc]initWithFrame:self.view.bounds];
+            [viewa makeMidTableView:CGRectMake(40, 40, 200, 40) withArray:resultArray];
+            [self.view addSubview:viewa];
+
             
             
             

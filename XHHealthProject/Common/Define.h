@@ -18,7 +18,7 @@
 #define CD(x) ([[UIDevice currentDevice].systemVersion floatValue] >= (x))
 #define CD_X(z) ([[UIDevice currentDevice].systemVersion floatValue] == (z))
 // Dlog
-#if DEBUG
+#if 1
 #define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else
 #define DLog(fmt, ...)
@@ -49,5 +49,8 @@
 
 
 #define CARD @"61010319600411241X"
+
+
+#define EXCHANGEPIC @"EXCHANGEPIC"
 
 #endif

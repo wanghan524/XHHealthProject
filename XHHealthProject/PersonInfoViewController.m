@@ -18,15 +18,18 @@
 #import "PersonOtherInfoCell.h"
 
 #import "PersonInfoSingleTon.h"
+#import "IBActionSheet.h"
 
 
-@interface PersonInfoViewController ()<UITableViewDelegate,UITableViewDataSource>{
+@interface PersonInfoViewController ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     PersonInfoSingleTon *personSingleTon;
+    UIImage *_headImageView;
 }
 
 @property(nonatomic,strong)XHNavigationView *navView;
 @property(nonatomic,strong)UITableView *infoTableView;
 @property(nonatomic,strong)UIView *bgView;
+//@property(nonatomic,strong)IBActionSheet *ibSheet;
 
 @end
 
@@ -37,9 +40,54 @@
     
     personSingleTon = [PersonInfoSingleTon personInfoShareInstance];
     
+    
+    /*
+     读取沙盒中的图片 用dataWithContentsOfURL 或者imageWithContentsOfFile 结果为nil，
+     必须使用 nsfileManager 方法去实现
+     */
+    NSURL *docsUrl = [[[NSFileManager defaultManager]URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask]lastObject];
+    NSString *resultStr = [[docsUrl path]stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",@"headImage"]];
+    UIImage *imgs = [UIImage imageWithContentsOfFile:resultStr];
+    if (imgs != nil) {
+        _headImageView = imgs;
+    }else{
+        _headImageView = nil;
+    }
+
+    
     [self bulidHomePageNav];
     [self bulidTable];
     // Do any additional setup after loading the view.
+}
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_8_0
+
+- (void)showAlertWithMessage:(NSString *)message{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+    [alert show];
+}
+#else
+-(void)showAlertWithMessage:(NSString *)message
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+    }];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    
+}
+
+#endif
+- (void)loadSourceWithType:(UIImagePickerControllerSourceType)sourceType{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = sourceType;
+    //设置代理
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 
@@ -104,7 +152,147 @@
         EditPassVC *vc = [[EditPassVC alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
     }
+    if(indexPath.section == 0)
+    {
+        [self creatBottomView];
+    }
 }
+
+
+//创建底部视图，供选择照片途径使用
+- (void)creatBottomView{
+    
+    /**
+     * 修改自定义图像 2015-1-22 周四 16:41 赵英超
+     */
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"拍照" otherButtonTitles:@"从相册选择", nil];
+    [sheet showInView:self.view];
+    
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==0) {
+        //先判断资源是否可用
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            [self loadSourceWithType:UIImagePickerControllerSourceTypeCamera];
+        }else{
+            [self showAlertWithMessage:@"相机不可用"];
+        }
+    }else if (buttonIndex==1){
+        //先判断资源是否可用
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            [self loadSourceWithType:UIImagePickerControllerSourceTypePhotoLibrary];
+        }else{
+            [self showAlertWithMessage:@"无法调用相册库"];
+        }
+    }
+}
+
+-(void)willPresentActionSheet:(UIActionSheet *)actionSheet
+{
+    for(id actionId in actionSheet.subviews)
+    {
+        if([actionId isMemberOfClass:[UIButton class]])
+        {
+            [((UIButton *)actionId) setTitleColor:[UIColor colorWithHexString:@"#7eb26c"] forState:UIControlStateNormal];
+        }
+    }
+    
+}
+
+
+
+
+//-(void)creatBottomView
+//{
+//    
+//    self.ibSheet = [[IBActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"拍照" otherButtonTitles:@"从相册选择", nil];
+//    [self.ibSheet setButtonTextColor:[UIColor colorWithHexString:@"#7eb26c"]];
+//    AppDelegate *app = [UIApplication sharedApplication].delegate;
+//    [self.ibSheet showInView:app.window];
+//}
+
+
+
+//-(void)actionSheet:(IBActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    switch (buttonIndex)
+//    {
+//        case 0:
+//        {
+//            if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+//            {
+//                [self loadSourceWithType:UIImagePickerControllerSourceTypeCamera];
+//            }else{
+//                [self showAlertWithMessage:@"相机不可用"];
+//            }
+//            
+//            break;
+//        }
+//        case 1:
+//        {
+//            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+//                [self loadSourceWithType:UIImagePickerControllerSourceTypePhotoLibrary];
+//            }else{
+//                [self showAlertWithMessage:@"无法调用相册库"];
+//            }
+//            
+//            break;
+//            
+//        }
+//        default:
+//            break;
+//    }
+//    
+//}
+
+
+
+
+//点击cancel按钮时，触发此方法
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];}
+//选中图片资源时(choose)，会触发此方法
+//info 中带有选中资源的信息
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    //先判断资源是否为图片资源(可能是video)
+    //获取选中资源的类型
+    
+        UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+        self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+        
+        NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        
+        NSString *path = [docDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",@"headImage"]];
+        
+        NSData *imageData = UIImagePNGRepresentation(image);
+        [imageData writeToFile:path atomically:YES];
+        _headImageView = image;
+        
+
+    [picker dismissViewControllerAnimated:YES completion:^{
+
+        [self.infoTableView reloadData];
+    }];
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -185,6 +373,13 @@
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"HeaderImageCell" owner:self options:nil] lastObject];
         }
+        if(_headImageView != nil)
+        {
+            cell.headerImageView.image = _headImageView;
+        }
+        cell.headerImageView.layer.cornerRadius = 28.f;
+        cell.headerImageView.layer.masksToBounds = YES;
+
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         cell.headerNameLabel.text = [[infoDic allKeys] objectAtIndex:indexPath.row];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;

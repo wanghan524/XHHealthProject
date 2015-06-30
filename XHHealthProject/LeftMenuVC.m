@@ -68,6 +68,18 @@
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     if ([user valueForKey:@"UserName"] != nil) {
         self.head.name.text = [user valueForKey:@"UserName"];
+        
+        NSURL *docsUrl = [[[NSFileManager defaultManager]URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask]lastObject];
+        NSString *resultStr = [[docsUrl path]stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",@"headImage"]];
+        UIImage *imgs = [UIImage imageWithContentsOfFile:resultStr];
+        if (imgs != nil) {
+            self.head.headImgView.image = imgs;
+        }else{
+            self.head.headImgView.image = [UIImage imageNamed:@"nologin"];
+        }
+
+        self.head.headImgView.layer.cornerRadius = 35.f;
+        self.head.headImgView.layer.masksToBounds  = YES;
     }else{
         self.head.name.text = @"请登录";
     }

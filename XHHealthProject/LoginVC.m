@@ -170,8 +170,14 @@
             [user setObject:[resultDic objectForKey:@"UserName"] forKey:@"UserName"];
             [user setObject:self.userTxt.text forKey:@"IdNumber"];
             
+            [UIView animateWithDuration:2.f animations:^{
+                [self showErrorHUDWithStr:@"登陆成功"];
+            } completion:^(BOOL finished) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
             
-            [self showErrorHUDWithStr:@"登陆成功"];
+            
+            
         }
 
     } FailRequest:^(id data, NSError *error) {

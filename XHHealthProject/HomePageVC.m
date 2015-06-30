@@ -46,6 +46,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setBgColor];
+    
+
+    
     [self bulidHomePageNav];
     [self buildMiddleImg];
     [self buildCheckView];
@@ -56,6 +59,7 @@
 //    [self buildNineBtn];
     [self buildBottom];
 }
+
 
 -(void)buildCollection
 {
@@ -84,7 +88,24 @@
         cell = [[ButtonCollectionCell alloc]init];
     }
     cell.backgroundColor = [UIColor whiteColor];
-    NSString *imgName = [NSString stringWithFormat:@"%d.png",indexPath.row+1];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSString *imgName;
+    if([user valueForKey:@"UserName"] != nil){
+        if(indexPath.row == 7)
+        {
+            imgName = [NSString stringWithFormat:@"%d.gif",indexPath.row+1];
+        }
+        else
+        {imgName = [NSString stringWithFormat:@"%d.png",indexPath.row+1];}
+    }else
+    {
+        if(indexPath.row == 7)
+        {
+            imgName = [NSString stringWithFormat:@"%d.gif",indexPath.row + 1];
+        }else{
+            imgName = [NSString stringWithFormat:@"%d_no.png",indexPath.row+1];}
+    }
+    
     cell.buttonImg.image = [UIImage imageNamed:imgName];
     cell.buttonLab.text = self.btnNameArray[indexPath.row];
     return cell;
@@ -303,13 +324,33 @@
     [self.view addSubview:self.navView];
 }
 
+
+
+
 - (void)viewWillAppear:(BOOL)animated{
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     if ([user valueForKey:@"UserName"] != nil) {
         self.navView.lbl_login.text = [user valueForKey:@"UserName"];
+        
+        NSURL *docsUrl = [[[NSFileManager defaultManager]URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask]lastObject];
+        NSString *resultStr = [[docsUrl path]stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",@"headImage"]];
+        UIImage *imgs = [UIImage imageWithContentsOfFile:resultStr];
+        if (imgs != nil) {
+            [self.navView.btn_login setImage:imgs forState:UIControlStateNormal];
+        }else{
+            [self.navView.btn_login setImage:[UIImage imageNamed:@"head"] forState:UIControlStateNormal];
+        }
+        
+        self.navView.btn_login.layer.cornerRadius = 15.f;
+        self.navView.btn_login.layer.masksToBounds  = YES;
+
+        
     }else{
         self.navView.lbl_login.text = @"登录";
     }
+    [self.collection reloadData];
+
+    
 }
 
 -(void)loginBtn:(UIButton *)sender
