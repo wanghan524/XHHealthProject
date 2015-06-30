@@ -51,6 +51,14 @@
     [self.btn_login setBackgroundColor:[UIColor clearColor]];
     [self addSubview:self.btn_login];
     
+    self.lbl_login = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.btn_login.frame)+5, NAVIGATIONHEIGHT+6,100, 32)];
+    self.lbl_login.backgroundColor = [UIColor clearColor];
+    self.lbl_login.textAlignment = NSTextAlignmentLeft;
+    self.lbl_login.font = [UIFont systemFontOfSize:15];
+    self.lbl_login.textColor = [UIColor whiteColor];
+    self.lbl_login.adjustsFontSizeToFitWidth = YES;
+    [self addSubview:self.lbl_login];
+    
     
     self.lbl_login_middle = [[UILabel alloc]initWithFrame:CGRectMake(0, NAVIGATIONHEIGHT, 250, 32)];
     self.lbl_login_middle.backgroundColor = [UIColor clearColor];
@@ -68,6 +76,7 @@
     self.rightBtn.backgroundColor = [UIColor clearColor];
     [self.rightBtn setFrame:CGRectMake(ScreenWidth - 60, CGRectGetMinY(self.btn_login.frame), 50, 32)];
     self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [self.rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self addSubview:self.rightBtn];
 }
 

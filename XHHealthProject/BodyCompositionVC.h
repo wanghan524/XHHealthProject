@@ -9,5 +9,5 @@
 #import "BaseVC.h"
 
 @interface BodyCompositionVC : BaseVC
-
+@property (nonatomic,strong) NSString *flagString;
 @end

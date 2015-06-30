@@ -10,7 +10,7 @@
 #import "XHNavigationView.h"
 #import "WSRequestManager.h"
 
-@interface EditPassVC ()
+@interface EditPassVC ()<UITextFieldDelegate>
 @property(nonatomic,strong)XHNavigationView *navView;
 @property(nonatomic,strong)UIView *bgView;
 
@@ -47,10 +47,11 @@
     [self.bgView addSubview:self.originPass];
     
     self.originText = [[UITextField alloc]initWithFrame:CGRectMake(2, CGRectGetMaxY(self.originPass.frame)+5, ScreenWidth - 4, 40)];
-    self.originText.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.originText.layer.borderColor = [UIColor grayColor].CGColor;
     self.originText.layer.cornerRadius = 5;
     self.originText.layer.masksToBounds = YES;
     self.originText.layer.borderWidth = 1.f;
+    self.originText.delegate = self;
     self.originText.borderStyle = UITextBorderStyleRoundedRect;
     self.originText.font = [UIFont systemFontOfSize:14];
     [self.bgView addSubview:self.originText];
@@ -63,11 +64,11 @@
     
     self.newsText = [[UITextField alloc]initWithFrame:CGRectMake(2, CGRectGetMaxY(self.newsPass.frame)+5, ScreenWidth -4, 40)];
     self.newsText.layer.borderWidth = 1.f;
-    self.newsText.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.newsText.layer.borderColor = [UIColor grayColor].CGColor;
     
     self.newsText.layer.cornerRadius = 5;
     self.newsText.layer.masksToBounds = YES;
-
+    self.newsText.delegate = self;
     
     self.newsText.borderStyle  = UITextBorderStyleRoundedRect;
     self.newsText.font = [UIFont systemFontOfSize:14];
@@ -80,13 +81,14 @@
     [self.bgView addSubview:self.confirmPass];
     
     self.confirmText = [[UITextField alloc]initWithFrame:CGRectMake(2, CGRectGetMaxY(self.confirmPass.frame)+5, ScreenWidth - 4 , 40)];
-    self.confirmText.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.confirmText.layer.borderColor = [UIColor grayColor].CGColor;
     self.confirmText.layer.borderWidth = 1.f;
     
     self.confirmText.layer.cornerRadius = 5;
     self.confirmText.layer.masksToBounds = YES;
     //self.confirmText.secureTextEntry = YES;
     
+    self.confirmText.delegate = self;
     self.confirmText.font = [UIFont systemFontOfSize:14];
     self.confirmText.borderStyle = UITextBorderStyleRoundedRect;
     [self.bgView addSubview:self.confirmText];
@@ -126,6 +128,12 @@
 - (void)finishButtonClick{
     DLog(@"finish ");
     
+    if ([self.originText.text isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请输入原密码!" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    
     if (![self.newsText.text isEqualToString:self.confirmText.text]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"新密码输入不同,请重输..." delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alert show];
@@ -155,6 +163,33 @@
     } FailRequest:^(id data, NSError *error) {
         
     }];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    
+    /*
+     
+     @property(nonatomic,strong)UITextField *originText;
+     @property(nonatomic,strong)UITextField *newsText;
+     @property(nonatomic,strong)UITextField *confirmText;
+     */
+    if (textField == self.originText ) {
+        self.originText.layer.borderColor = [UIColor orangeColor].CGColor;
+        self.newsText.layer.borderColor = [UIColor grayColor].CGColor;
+        self.confirmText.layer.borderColor = [UIColor grayColor].CGColor;
+    }
+    
+    else if (textField == self.newsText){
+        self.originText.layer.borderColor = [UIColor grayColor].CGColor;
+        self.newsText.layer.borderColor = [UIColor orangeColor].CGColor;
+        self.confirmText.layer.borderColor = [UIColor grayColor].CGColor;
+    }
+    
+    else if (textField == self.confirmText){
+        self.originText.layer.borderColor = [UIColor grayColor].CGColor;
+        self.newsText.layer.borderColor = [UIColor grayColor].CGColor;
+        self.confirmText.layer.borderColor = [UIColor orangeColor].CGColor;
+    }
 }
 
 

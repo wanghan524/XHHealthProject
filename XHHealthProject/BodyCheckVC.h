@@ -10,4 +10,6 @@
 #import "UIColor+Category.h"
 @interface BodyCheckVC : BaseVC
 
+@property (nonatomic,strong) NSString *flagString;
+
 @end

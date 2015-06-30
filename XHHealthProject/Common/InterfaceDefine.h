@@ -69,4 +69,14 @@ typedef enum ResponseType
 //眼科眼底检查
 #define EYEFUNDUSEXAM @"GetEyeFundusExamByIDNumber"
 
+//指标大类
+#define SELFTESTITEMCLASS @"GetSelfTestItemClass"
+
+//指标项目
+
+#define SELFTESTITEMSBYCLASSID @"GetSelfTestItemsByClassID"
+
+//自测结果数据
+#define USERSELFTEST @"UserSelfTest"
+
 #endif

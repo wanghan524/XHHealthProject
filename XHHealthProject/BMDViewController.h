@@ -10,5 +10,5 @@
 #import "UIColor+Category.h"
 #import "BoodCell.h"
 @interface BMDViewController : BaseVC
-
+@property (nonatomic,strong) NSString *flagString;
 @end

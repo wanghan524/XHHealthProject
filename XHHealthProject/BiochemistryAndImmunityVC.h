@@ -9,5 +9,5 @@
 #import "BaseVC.h"
 #import "UIColor+Category.h"
 @interface BiochemistryAndImmunityVC : BaseVC
-
+@property (nonatomic,strong) NSString *flagString;
 @end

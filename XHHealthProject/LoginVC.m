@@ -55,7 +55,7 @@
 -(void)buildLoginView
 {
     self.bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth,ScreenHeight-64)];
-    self.bgView.backgroundColor = [UIColor grayColor];
+    self.bgView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.bgView];
     
     self.userLab = [[UILabel alloc]initWithFrame:CGRectMake(20, 20, ScreenWidth - 40, 20)];
@@ -68,6 +68,12 @@
     self.userTxt = [[UITextField alloc]initWithFrame:CGRectMake(5, CGRectGetMaxY(self.userLab.frame), ScreenWidth-10, 40)];
     self.userTxt.borderStyle = UITextBorderStyleRoundedRect;
     self.userTxt.font = [UIFont systemFontOfSize:13];
+    
+    self.userTxt.layer.borderColor = [UIColor grayColor].CGColor;
+    self.userTxt.layer.borderWidth = 1.f;
+    
+    self.userTxt.layer.cornerRadius = 5;
+    self.userTxt.layer.masksToBounds = YES;
     self.userTxt.delegate = self;
     [self.bgView addSubview:self.userTxt];
     
@@ -81,6 +87,13 @@
     self.passwordTxt = [[UITextField alloc]initWithFrame:CGRectMake(5, CGRectGetMaxY(self.passLab.frame), ScreenWidth-10, 40)];
     self.passwordTxt.borderStyle = UITextBorderStyleRoundedRect;
     self.passwordTxt.font = [UIFont systemFontOfSize:13];
+    
+    self.passwordTxt.layer.borderColor = [UIColor grayColor].CGColor;
+    self.passwordTxt.layer.borderWidth = 1.f;
+    
+    self.passwordTxt.layer.cornerRadius = 5;
+    self.passwordTxt.layer.masksToBounds = YES;
+    
     self.passwordTxt.delegate = self;
     [self.bgView addSubview:self.passwordTxt];
     
@@ -158,7 +171,7 @@
             [user setObject:self.userTxt.text forKey:@"IdNumber"];
             
             
-            [self showErrorHUDWithStr:resultDic[@"ExMessage"]];
+            [self showErrorHUDWithStr:@"登陆成功"];
         }
 
     } FailRequest:^(id data, NSError *error) {
@@ -169,6 +182,24 @@
     
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    /*
+     @property(nonatomic,strong)UITextField *userTxt;
+     @property(nonatomic,strong)UITextField *passwordTxt;
+     
+     */
+    if (textField == self.userTxt) {
+        self.userTxt.layer.borderColor = [UIColor orangeColor].CGColor;
+        self.passwordTxt.layer.borderColor = [UIColor grayColor].CGColor;
+        
+    }
+    if (textField == self.passwordTxt) {
+        
+        self.userTxt.layer.borderColor = [UIColor grayColor].CGColor;
+        self.passwordTxt.layer.borderColor = [UIColor orangeColor].CGColor;
+    
+    }
+}
 
 
 -(void)bulidNav
@@ -196,6 +227,10 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
     
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
